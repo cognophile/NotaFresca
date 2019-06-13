@@ -1,4 +1,4 @@
-# Contributing to Contrast
+# Contributing to NotaFresca
 Firstly, thanks for checking out the project and showing an interest in helping out! 
 
 The project is young, but will evolve over time so if you're interested in helping it along, that's awesome.
