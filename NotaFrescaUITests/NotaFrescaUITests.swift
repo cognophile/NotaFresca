@@ -1,10 +1,3 @@
-//
-//  NotaFrescaUITests.swift
-//  NotaFrescaUITests
-//
-//  Created by Alex Boggis on 13/06/2019.
-//  Copyright © 2019 cognophile. All rights reserved.
-//
 
 import XCTest
 
