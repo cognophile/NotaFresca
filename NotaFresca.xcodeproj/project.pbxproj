@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00F58D22BC2D6700420EDD /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F58C22BC2D6700420EDD /* NoteModel.swift */; };
+		0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F58E22BC2E4800420EDD /* NoteBrowserViewController.swift */; };
+		0D00F59122BC2EF700420EDD /* NoteBrowserCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59022BC2EF700420EDD /* NoteBrowserCellViewController.swift */; };
+		0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59222BC376F00420EDD /* NoteEditorViewController.swift */; };
 		0D63739D22B2F17300CFB4E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */; };
 		0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */; };
 		0D6373A122B2F17400CFB4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6373A022B2F17400CFB4E2 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* Begin PBXFileReference section */
 		0577BE915E65D09890652460 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
 		069E3F0DD0FCCC4C0CC5B0D0 /* Pods-NotaFrescaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.release.xcconfig"; sourceTree = "<group>"; };
+		0D00F58C22BC2D6700420EDD /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		0D00F58E22BC2E4800420EDD /* NoteBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserViewController.swift; sourceTree = "<group>"; };
+		0D00F59022BC2EF700420EDD /* NoteBrowserCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserCellViewController.swift; sourceTree = "<group>"; };
+		0D00F59222BC376F00420EDD /* NoteEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewController.swift; sourceTree = "<group>"; };
 		0D63739922B2F17300CFB4E2 /* NotaFresca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotaFresca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +98,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D00F58A22BC2B6200420EDD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D00F59522BC37A700420EDD /* Editor */,
+				0D00F59422BC379500420EDD /* Browser */,
+				0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D00F58B22BC2D5600420EDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D00F58C22BC2D6700420EDD /* NoteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0D00F59422BC379500420EDD /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				0D00F58E22BC2E4800420EDD /* NoteBrowserViewController.swift */,
+				0D00F59022BC2EF700420EDD /* NoteBrowserCellViewController.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		0D00F59522BC37A700420EDD /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				0D00F59222BC376F00420EDD /* NoteEditorViewController.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
 		0D63739022B2F17200CFB4E2 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +158,8 @@
 		0D63739B22B2F17300CFB4E2 /* NotaFresca */ = {
 			isa = PBXGroup;
 			children = (
+				0D00F58B22BC2D5600420EDD /* Models */,
+				0D00F58A22BC2B6200420EDD /* Views */,
 				0DF085D722B303F000EBF9EC /* Controllers */,
 				0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */,
 				0D6373A022B2F17400CFB4E2 /* Assets.xcassets */,
@@ -147,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				0DF085D522B3025D00EBF9EC /* AppWindowController.swift */,
-				0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -405,7 +449,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */,
+				0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */,
+				0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */,
+				0D00F58D22BC2D6700420EDD /* NoteModel.swift in Sources */,
 				0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */,
+				0D00F59122BC2EF700420EDD /* NoteBrowserCellViewController.swift in Sources */,
 				0D63739D22B2F17300CFB4E2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

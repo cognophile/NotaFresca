@@ -701,7 +701,7 @@
         <!--NotaFresca-->
         <scene sceneID="wqK-nq-Y0r">
             <objects>
-                <splitViewController title="NotaFresca" storyboardIdentifier="CoreViewController" id="IJL-6D-9nf" sceneMemberID="viewController">
+                <splitViewController title="NotaFresca" storyboardIdentifier="CoreViewController" id="IJL-6D-9nf" customClass="CoreViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Wtq-K0-Eah"/>
                         <splitViewItem id="Vz3-rE-rsF"/>
@@ -714,6 +714,8 @@
                         </connections>
                     </splitView>
                     <connections>
+                        <outlet property="browser" destination="Wtq-K0-Eah" id="Fma-ne-Mao"/>
+                        <outlet property="editor" destination="Vz3-rE-rsF" id="69t-hF-twS"/>
                         <outlet property="splitView" destination="iar-Mb-DaB" id="5yx-Hy-3Aj"/>
                         <segue destination="AJB-Rv-pdl" kind="relationship" relationship="splitItems" id="Zl8-a2-NdZ"/>
                         <segue destination="Zre-hx-nox" kind="relationship" relationship="splitItems" id="jw9-BL-NPS"/>
@@ -723,23 +725,23 @@
             </objects>
             <point key="canvasLocation" x="-1608" y="783"/>
         </scene>
-        <!--View Controller-->
+        <!--Note Browser View Controller-->
         <scene sceneID="pQP-Rs-XzG">
             <objects>
-                <viewController id="AJB-Rv-pdl" sceneMemberID="viewController">
+                <viewController id="AJB-Rv-pdl" customClass="NoteBrowserViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="CWj-q7-wez">
                         <rect key="frame" x="0.0" y="0.0" width="225" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC6-Lo-Dn4">
-                                <rect key="frame" x="0.0" y="0.0" width="225" height="761"/>
+                                <rect key="frame" x="0.0" y="44" width="225" height="717"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="B2N-V0-5Nl">
-                                    <rect key="frame" x="1" y="0.0" width="223" height="760"/>
+                                    <rect key="frame" x="1" y="0.0" width="223" height="716"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Qj2-We-LAP" viewBased="YES" id="V32-IE-4KG">
-                                            <rect key="frame" x="0.0" y="0.0" width="223" height="735"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="223" height="691"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -804,25 +806,83 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
                             </searchField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-Zf-82n">
+                                <rect key="frame" x="2" y="5" width="220" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="createNoteButton:" target="AJB-Rv-pdl" id="HqY-nZ-yFc"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="create" destination="CWj-q7-wez" id="Qmc-Ut-gjt"/>
+                    </connections>
                 </viewController>
                 <customObject id="PV2-i2-GUd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830.5" y="523"/>
+            <point key="canvasLocation" x="-869" y="523"/>
         </scene>
-        <!--View Controller-->
+        <!--Note Editor View Controller-->
         <scene sceneID="ca0-NV-gzQ">
             <objects>
-                <viewController id="Zre-hx-nox" sceneMemberID="viewController">
+                <viewController id="Zre-hx-nox" customClass="NoteEditorViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Lek-WY-dLh">
                         <rect key="frame" x="0.0" y="0.0" width="799" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-mE-3vE">
+                                <rect key="frame" x="18" y="751" width="763" height="29"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="YYY-63-Mcu">
+                                    <font key="font" size="20" name="Avenir-Heavy"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="Zre-hx-nox" name="displayPatternValue1" keyPath="self.titleLabel" id="P62-cO-u2P">
+                                            <dictionary key="options">
+                                                <string key="NSDisplayPattern">%{value1}@</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51m-oh-naS">
+                                <rect key="frame" x="18" y="45" width="763" height="698"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="qwE-Yw-KmB">
+                                    <font key="font" size="13" name="Avenir-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-9F-jMK">
+                                <rect key="frame" x="22" y="19" width="310" height="18"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BUF-xy-Y69">
+                                    <font key="font" size="10" name="Avenir-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="51m-oh-naS" id="9qR-CF-hkZ"/>
+                        <outlet property="createdLabel" destination="PA0-9F-jMK" id="KCh-Qc-Del"/>
+                        <outlet property="titleLabel" destination="bWh-mE-3vE" id="nRB-6F-hr2"/>
+                    </connections>
                 </viewController>
                 <customObject id="EMS-3s-xwz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-303.5" y="523"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
 </document>
