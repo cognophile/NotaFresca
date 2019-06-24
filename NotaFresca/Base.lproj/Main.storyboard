@@ -740,8 +740,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="94" rowSizeStyle="automatic" headerView="Qj2-We-LAP" viewBased="YES" id="V32-IE-4KG">
-                                            <rect key="frame" x="0.0" y="0.0" width="225" height="692"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="94" rowSizeStyle="automatic" viewBased="YES" id="V32-IE-4KG">
+                                            <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -812,13 +812,9 @@
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="Qj2-We-LAP">
-                                    <rect key="frame" x="0.0" y="0.0" width="225" height="25"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableHeaderView>
                             </scrollView>
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-SX-Xkl">
-                                <rect key="frame" x="20" y="769" width="185" height="22"/>
+                                <rect key="frame" x="8" y="769" width="208" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="ymu-nk-yeG">
                                     <font key="font" metaFont="system"/>
@@ -856,33 +852,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="799" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-mE-3vE">
-                                <rect key="frame" x="18" y="751" width="763" height="29"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="YYY-63-Mcu">
-                                    <font key="font" size="20" name="Avenir-Heavy"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <binding destination="Zre-hx-nox" name="displayPatternValue1" keyPath="self.titleLabel" id="P62-cO-u2P">
-                                            <dictionary key="options">
-                                                <string key="NSDisplayPattern">%{value1}@</string>
-                                            </dictionary>
-                                        </binding>
-                                    </connections>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="51m-oh-naS">
-                                <rect key="frame" x="18" y="45" width="763" height="698"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="qwE-Yw-KmB">
-                                    <font key="font" size="13" name="Avenir-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-9F-jMK">
-                                <rect key="frame" x="22" y="19" width="310" height="18"/>
+                                <rect key="frame" x="18" y="12" width="310" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="BUF-xy-Y69">
                                     <font key="font" size="10" name="Avenir-Light"/>
@@ -890,12 +861,48 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-Nj-ocM">
+                                <rect key="frame" x="20" y="38" width="759" height="697"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ghM-jx-e7P">
+                                    <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" verticallyResizable="YES" continuousSpellChecking="YES" spellingCorrection="YES" grammarChecking="YES" smartInsertDelete="YES" id="EAF-AY-15n">
+                                            <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <size key="minSize" width="759" height="697"/>
+                                            <size key="maxSize" width="888" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="f0J-Py-2su">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="33x-bv-X1f">
+                                    <rect key="frame" x="743" y="0.0" width="16" height="697"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9sq-Xt-SBd">
+                                <rect key="frame" x="20" y="743" width="759" height="37"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" drawsBackground="YES" id="VdQ-wf-mVb">
+                                    <font key="font" size="16" name="Avenir-Heavy"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="bodyLabel" destination="51m-oh-naS" id="9qR-CF-hkZ"/>
+                        <outlet property="bodyPane" destination="8aO-Nj-ocM" id="hEy-4Z-TPn"/>
                         <outlet property="createdLabel" destination="PA0-9F-jMK" id="KCh-Qc-Del"/>
-                        <outlet property="titleLabel" destination="bWh-mE-3vE" id="nRB-6F-hr2"/>
+                        <outlet property="titlePane" destination="9sq-Xt-SBd" id="Edo-KF-DjK"/>
                     </connections>
                 </viewController>
                 <customObject id="EMS-3s-xwz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

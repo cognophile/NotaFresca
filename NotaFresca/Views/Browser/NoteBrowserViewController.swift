@@ -30,13 +30,16 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         browser?.reloadData()
         browser?.selectRowIndexes(NSIndexSet(index: index) as IndexSet, byExtendingSelection: false)
         browser?.scrollRowToVisible(index)
-        self.activeNote = self.notes?[index]
+        
+        if (self.notes?.count ?? 0 > 0) {
+            self.activeNote = self.notes?[index]
+        }
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
         let newNote = NoteModel(
-            title: "An Awesome Note",
-            body: "Let's write about all the great things in the world!\n\n • Pizza!\n • Coffee\n • The rest of the pizza"
+            title: "New note",
+            body: "Write something here..."
         )
         
         self.respository.save(note: newNote)
