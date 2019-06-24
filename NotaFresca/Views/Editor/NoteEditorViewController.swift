@@ -13,9 +13,7 @@ class NoteEditorViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.titleLabel?.isHidden = true;
-        self.bodyLabel?.isHidden = true;
-        self.createdLabel?.isHidden = true;
+        self.hideLabels(visibility: true)
     }
     
     public func showNote(note: NoteModel) {
@@ -25,8 +23,12 @@ class NoteEditorViewController: NSViewController {
         self.bodyLabel?.stringValue = self.note!.body
         self.createdLabel?.stringValue = self.note!.created
         
-        self.titleLabel?.isHidden = false;
-        self.bodyLabel?.isHidden = false;
-        self.createdLabel?.isHidden = false;
+        self.hideLabels(visibility: false)
+    }
+    
+    private func hideLabels(visibility: Bool) {
+        self.titleLabel?.isHidden = visibility;
+        self.bodyLabel?.isHidden = visibility;
+        self.createdLabel?.isHidden = visibility;
     }
 }
