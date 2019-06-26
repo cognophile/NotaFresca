@@ -723,7 +723,7 @@
                 </splitViewController>
                 <customObject id="Qxv-Ek-6fq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1608" y="783"/>
+            <point key="canvasLocation" x="-1580" y="959"/>
         </scene>
         <!--Note Browser View Controller-->
         <scene sceneID="pQP-Rs-XzG">
@@ -823,7 +823,7 @@
                                 </searchFieldCell>
                             </searchField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-Zf-82n">
-                                <rect key="frame" x="2" y="5" width="220" height="32"/>
+                                <rect key="frame" x="2" y="5" width="47" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -833,11 +833,23 @@
                                     <action selector="createNoteButton:" target="AJB-Rv-pdl" id="HqY-nZ-yFc"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4w-jt-nIu">
+                                <rect key="frame" x="175" y="5" width="47" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P1p-cM-05E">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="removeNoteButton:" target="AJB-Rv-pdl" id="0jp-0y-Oc4"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="browser" destination="V32-IE-4KG" id="KcG-gw-CMn"/>
                         <outlet property="create" destination="CWj-q7-wez" id="Qmc-Ut-gjt"/>
+                        <outlet property="remove" destination="d4w-jt-nIu" id="Fyr-3X-qi2"/>
                     </connections>
                 </viewController>
                 <customObject id="PV2-i2-GUd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -900,6 +912,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="bodyContainedTextView" destination="EAF-AY-15n" id="S7k-Qs-ZPf"/>
                         <outlet property="bodyPane" destination="8aO-Nj-ocM" id="hEy-4Z-TPn"/>
                         <outlet property="createdLabel" destination="PA0-9F-jMK" id="KCh-Qc-Del"/>
                         <outlet property="titlePane" destination="9sq-Xt-SBd" id="Edo-KF-DjK"/>
@@ -912,5 +925,6 @@
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

@@ -1,18 +1,20 @@
 
 import Foundation
 
-public struct NoteModel {
+public struct NoteModel: Equatable {
     let title: String
     let body: String
-    let created: String
+    let created: Date
     
-    init(title: String, body: String) {
+    init(title: String, body: String, created: Date = Date()) {
         self.title = title
         self.body = body
-        
-        let created = Date()
+        self.created = created
+    }
+    
+    public func getCreatedString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy @ hh:mm"
-        self.created = formatter.string(from: created)
+        return formatter.string(from: self.created)
     }
 }

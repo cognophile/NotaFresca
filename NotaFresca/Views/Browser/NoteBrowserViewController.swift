@@ -6,11 +6,12 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     @IBOutlet weak var browser: NSTableView?
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
+    @IBOutlet weak var remove: NSButton!
     
-    var editor: NoteEditorViewController?
     var notes: Array<NoteModel>?
     var activeNote: NoteModel?
     var respository: NoteRepository = NoteRepository()
+    var editor: NoteEditorViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,9 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     
     @objc func refresh(_ notification: NSNotification? = nil) {
         let index : Int = 0
-        self.notes = self.respository.read()
-        
+        self.notes = self.respository.readAll()
+        self.editor?.setRepository(repository: self.respository)
+
         browser?.reloadData()
         browser?.selectRowIndexes(NSIndexSet(index: index) as IndexSet, byExtendingSelection: false)
         browser?.scrollRowToVisible(index)
@@ -42,9 +44,18 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
             body: "Write something here..."
         )
         
-        self.respository.save(note: newNote)
-        self.refresh()
-        editor?.showNote(note: newNote)
+        if let index = self.respository.save(note: newNote) {
+            self.refresh()
+            editor?.render(index: index, note: newNote)
+        }
+    }
+    
+    @IBAction func removeNoteButton(_ sender: NSButton) {
+        if let selectedNote = browser?.selectedRow {
+            self.respository.delete(target: selectedNote)
+            self.refresh()
+            editor?.empty()
+        }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -65,7 +76,7 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         
         cell?.title.stringValue = item.title;
         cell?.bodyPreview.stringValue = (item.body.count > truncateLength) ? item.body.trunc(length: truncateLength) : item.body
-        cell?.created.stringValue = item.created;
+        cell?.created.stringValue = item.getCreatedString();
         
         return cell
     }
