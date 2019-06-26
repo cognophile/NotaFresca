@@ -76,7 +76,7 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         
         cell?.title.stringValue = item.title;
         cell?.bodyPreview.stringValue = (item.body.count > truncateLength) ? item.body.trunc(length: truncateLength) : item.body
-        cell?.created.stringValue = item.getCreatedString();
+        cell?.created.stringValue = DateFormatHelper.toDateTime(date: item.created)
         
         return cell
     }

@@ -13,8 +13,6 @@ public struct NoteModel: Equatable {
     }
     
     public func getCreatedString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy @ hh:mm"
-        return formatter.string(from: self.created)
+        return DateFormatHelper.toDateTime(date: self.created)
     }
 }

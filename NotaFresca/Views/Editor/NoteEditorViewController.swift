@@ -95,6 +95,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     private func setDisplayNote(title: String, body: String, created: Date) {
         self.titlePane.stringValue = title
         self.bodyPane.documentView!.insertText(body)
-        self.createdLabel?.stringValue = self.note!.getCreatedString()
+        self.createdLabel?.stringValue = DateFormatHelper.toDateTime(date: created)
+
     }
 }

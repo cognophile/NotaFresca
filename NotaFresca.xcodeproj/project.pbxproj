@@ -12,6 +12,7 @@
 		0D00F59122BC2EF700420EDD /* NoteBrowserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59022BC2EF700420EDD /* NoteBrowserCellView.swift */; };
 		0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59222BC376F00420EDD /* NoteEditorViewController.swift */; };
 		0D00F59822BC505900420EDD /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59722BC505900420EDD /* NoteRepository.swift */; };
+		0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */; };
 		0D40114D22C1700F00A1EC0A /* StringTruncateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */; };
 		0D63739D22B2F17300CFB4E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */; };
 		0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */; };
@@ -50,6 +51,7 @@
 		0D00F59022BC2EF700420EDD /* NoteBrowserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserCellView.swift; sourceTree = "<group>"; };
 		0D00F59222BC376F00420EDD /* NoteEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditorViewController.swift; sourceTree = "<group>"; };
 		0D00F59722BC505900420EDD /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
+		0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncateExtension.swift; sourceTree = "<group>"; };
 		0D63739922B2F17300CFB4E2 /* NotaFresca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotaFresca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		0D07FF6F22C42E4E000CA632 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0D40114B22C16FE400A1EC0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 		0D63739B22B2F17300CFB4E2 /* NotaFresca */ = {
 			isa = PBXGroup;
 			children = (
+				0D07FF6F22C42E4E000CA632 /* Helpers */,
 				0D40114B22C16FE400A1EC0A /* Extensions */,
 				0D00F59622BC504600420EDD /* Repositories */,
 				0D00F58B22BC2D5600420EDD /* Models */,
@@ -472,6 +483,7 @@
 			files = (
 				0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */,
 				0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */,
+				0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */,
 				0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */,
 				0D00F58D22BC2D6700420EDD /* NoteModel.swift in Sources */,
 				0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */,
