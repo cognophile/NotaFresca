@@ -912,8 +912,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="bodyContainedTextView" destination="EAF-AY-15n" id="S7k-Qs-ZPf"/>
                         <outlet property="bodyPane" destination="8aO-Nj-ocM" id="hEy-4Z-TPn"/>
+                        <outlet property="bodyTextView" destination="EAF-AY-15n" id="S7k-Qs-ZPf"/>
                         <outlet property="createdLabel" destination="PA0-9F-jMK" id="KCh-Qc-Del"/>
                         <outlet property="titlePane" destination="9sq-Xt-SBd" id="Edo-KF-DjK"/>
                     </connections>

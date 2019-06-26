@@ -8,7 +8,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     @IBOutlet weak var bodyLabel: NSTextField?
     @IBOutlet weak var createdLabel: NSTextField?
     @IBOutlet weak var bodyPane: NSScrollView!
-    @IBOutlet weak var bodyContainedTextView: NSTextView!
+    @IBOutlet weak var bodyTextView: NSTextView!
     @IBOutlet weak var titlePane: NSTextField!
     
     var note: NoteModel?
@@ -19,9 +19,9 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.bodyContainedTextView.delegate = self
+        self.bodyTextView.delegate = self
         self.titlePane.delegate = self
-        self.bodyPane.documentView = self.bodyContainedTextView
+        self.bodyPane.documentView = self.bodyTextView
         self.bodyPane.contentView.scroll(to: .zero)
         
         self.hideLabels(hide: true)
@@ -55,7 +55,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     }
     
     public func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView, self.bodyContainedTextView.identifier == textView.identifier else {
+        guard let textView = notification.object as? NSTextView, self.bodyTextView.identifier == textView.identifier else {
             return
         }
         
@@ -94,7 +94,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     
     private func setDisplayNote(title: String, body: String, created: Date) {
         self.titlePane.stringValue = title
-        self.bodyContainedTextView.string = "";
+        self.bodyTextView.string = "";
         self.bodyPane.documentView!.insertText(body)
         self.createdLabel?.stringValue = DateFormatHelper.toDateTime(date: created)
     }
