@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle.main)
         app = storyboard?.instantiateController(withIdentifier: "AppWindowController") as? AppWindowController
         
-        app?.contentViewController = storyboard?.instantiateController(withIdentifier: "CoreViewController") as! NSSplitViewController
+        app?.contentViewController = storyboard?.instantiateController(withIdentifier: "NoteViewController") as! NSSplitViewController
         app?.showWindow(self)
     }
 

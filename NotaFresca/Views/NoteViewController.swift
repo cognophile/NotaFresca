@@ -2,7 +2,7 @@
 import Foundation
 import Cocoa
 
-class CoreViewController: NSSplitViewController {
+class NoteViewController: NSSplitViewController {
     @IBOutlet weak var browser: NSSplitViewItem!
     @IBOutlet weak var editor: NSSplitViewItem!
     

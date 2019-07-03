@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,11 +15,12 @@
 		0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */; };
 		0D40114D22C1700F00A1EC0A /* StringTruncateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */; };
 		0D63739D22B2F17300CFB4E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */; };
-		0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */; };
+		0D63739F22B2F17300CFB4E2 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739E22B2F17300CFB4E2 /* NoteViewController.swift */; };
 		0D6373A122B2F17400CFB4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6373A022B2F17400CFB4E2 /* Assets.xcassets */; };
 		0D6373A422B2F17400CFB4E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6373A222B2F17400CFB4E2 /* Main.storyboard */; };
 		0D6373B022B2F17400CFB4E2 /* NotaFrescaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6373AF22B2F17400CFB4E2 /* NotaFrescaTests.swift */; };
 		0D6373BB22B2F17400CFB4E2 /* NotaFrescaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6373BA22B2F17400CFB4E2 /* NotaFrescaUITests.swift */; };
+		0D746ACF22CD7730007A86DF /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */; };
 		0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF085D522B3025D00EBF9EC /* AppWindowController.swift */; };
 		1A8F683441A1656430E862F7 /* Pods_NotaFresca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */; };
 		3EC9C87C0DF45E468B3558E1 /* Pods_NotaFrescaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */; };
@@ -44,8 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0577BE915E65D09890652460 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
-		069E3F0DD0FCCC4C0CC5B0D0 /* Pods-NotaFrescaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.release.xcconfig"; sourceTree = "<group>"; };
+		0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0D00F58C22BC2D6700420EDD /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0D00F58E22BC2E4800420EDD /* NoteBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserViewController.swift; sourceTree = "<group>"; };
 		0D00F59022BC2EF700420EDD /* NoteBrowserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserCellView.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncateExtension.swift; sourceTree = "<group>"; };
 		0D63739922B2F17300CFB4E2 /* NotaFresca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotaFresca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreViewController.swift; sourceTree = "<group>"; };
+		0D63739E22B2F17300CFB4E2 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		0D6373A022B2F17400CFB4E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D6373A322B2F17400CFB4E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D6373A522B2F17400CFB4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,13 +66,15 @@
 		0D6373B622B2F17400CFB4E2 /* NotaFrescaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotaFrescaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6373BA22B2F17400CFB4E2 /* NotaFrescaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaFrescaUITests.swift; sourceTree = "<group>"; };
 		0D6373BC22B2F17400CFB4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		0DF085D522B3025D00EBF9EC /* AppWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
-		25FDB30BB9D0E35C9519B12C /* Pods-NotaFrescaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
 		300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFresca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B947F3239012105D517CE00B /* Pods-NotaFrescaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.release.xcconfig"; sourceTree = "<group>"; };
+		A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C366A13960F6D4E2560E3F74 /* Pods_NotaFrescaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA936A33A5F19FDEF5B44436 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
-		F90ACC4768BFFE79A79C7D2D /* Pods-NotaFrescaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
+		E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,7 +111,7 @@
 			children = (
 				0D00F59522BC37A700420EDD /* Editor */,
 				0D00F59422BC379500420EDD /* Browser */,
-				0D63739E22B2F17300CFB4E2 /* CoreViewController.swift */,
+				0D63739E22B2F17300CFB4E2 /* NoteViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */,
+				0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,8 +173,8 @@
 				0D6373AE22B2F17400CFB4E2 /* NotaFrescaTests */,
 				0D6373B922B2F17400CFB4E2 /* NotaFrescaUITests */,
 				0D63739A22B2F17300CFB4E2 /* Products */,
-				89FCDE5D755D1223D41A8BAC /* Pods */,
 				907FDFFF71D6EC19636CCE03 /* Frameworks */,
+				BDA4DE41ED29F0FDE3BE2EC6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,19 +232,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		89FCDE5D755D1223D41A8BAC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0577BE915E65D09890652460 /* Pods-NotaFresca.debug.xcconfig */,
-				EA936A33A5F19FDEF5B44436 /* Pods-NotaFresca.release.xcconfig */,
-				B947F3239012105D517CE00B /* Pods-NotaFrescaTests.debug.xcconfig */,
-				069E3F0DD0FCCC4C0CC5B0D0 /* Pods-NotaFrescaTests.release.xcconfig */,
-				25FDB30BB9D0E35C9519B12C /* Pods-NotaFrescaUITests.debug.xcconfig */,
-				F90ACC4768BFFE79A79C7D2D /* Pods-NotaFrescaUITests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		907FDFFF71D6EC19636CCE03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +240,19 @@
 				F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDA4DE41ED29F0FDE3BE2EC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */,
+				0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */,
+				E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */,
+				3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */,
+				A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */,
+				0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,20 +413,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Down/Down.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Down.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -481,9 +475,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D63739F22B2F17300CFB4E2 /* CoreViewController.swift in Sources */,
+				0D63739F22B2F17300CFB4E2 /* NoteViewController.swift in Sources */,
 				0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */,
 				0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */,
+				0D746ACF22CD7730007A86DF /* DatabaseHelper.swift in Sources */,
 				0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */,
 				0D00F58D22BC2D6700420EDD /* NoteModel.swift in Sources */,
 				0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */,
@@ -654,7 +649,7 @@
 		};
 		0D6373C022B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0577BE915E65D09890652460 /* Pods-NotaFresca.debug.xcconfig */;
+			baseConfigurationReference = DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NotaFresca/NotaFresca.entitlements;
@@ -674,7 +669,7 @@
 		};
 		0D6373C122B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA936A33A5F19FDEF5B44436 /* Pods-NotaFresca.release.xcconfig */;
+			baseConfigurationReference = 0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NotaFresca/NotaFresca.entitlements;
@@ -694,7 +689,7 @@
 		};
 		0D6373C322B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B947F3239012105D517CE00B /* Pods-NotaFrescaTests.debug.xcconfig */;
+			baseConfigurationReference = E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -715,7 +710,7 @@
 		};
 		0D6373C422B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 069E3F0DD0FCCC4C0CC5B0D0 /* Pods-NotaFrescaTests.release.xcconfig */;
+			baseConfigurationReference = 3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -736,7 +731,7 @@
 		};
 		0D6373C622B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25FDB30BB9D0E35C9519B12C /* Pods-NotaFrescaUITests.debug.xcconfig */;
+			baseConfigurationReference = A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -756,7 +751,7 @@
 		};
 		0D6373C722B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F90ACC4768BFFE79A79C7D2D /* Pods-NotaFrescaUITests.release.xcconfig */;
+			baseConfigurationReference = 0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -701,7 +701,7 @@
         <!--NotaFresca-->
         <scene sceneID="wqK-nq-Y0r">
             <objects>
-                <splitViewController title="NotaFresca" storyboardIdentifier="CoreViewController" id="IJL-6D-9nf" customClass="CoreViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="NotaFresca" storyboardIdentifier="CoreViewController" id="IJL-6D-9nf" customClass="NoteViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Wtq-K0-Eah"/>
                         <splitViewItem id="Vz3-rE-rsF"/>
@@ -738,7 +738,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="B2N-V0-5Nl">
                                     <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="94" rowSizeStyle="automatic" viewBased="YES" id="V32-IE-4KG">
                                             <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
@@ -878,7 +878,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ghM-jx-e7P">
                                     <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView ambiguous="YES" verticallyResizable="YES" continuousSpellChecking="YES" spellingCorrection="YES" grammarChecking="YES" smartInsertDelete="YES" id="EAF-AY-15n">
                                             <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
