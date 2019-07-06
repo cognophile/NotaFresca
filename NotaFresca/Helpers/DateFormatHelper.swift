@@ -2,9 +2,9 @@
 import Foundation
 
 class DateFormatHelper {
-    static func toDateTime(date: Date) -> String {
+    static func toDateTimeString(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy @ hh:mm"
+        formatter.dateFormat = "dd.MM.yyyy @ HH:mm"
         return formatter.string(from: date)
     }
 }

@@ -21,6 +21,9 @@
 		0D6373B022B2F17400CFB4E2 /* NotaFrescaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6373AF22B2F17400CFB4E2 /* NotaFrescaTests.swift */; };
 		0D6373BB22B2F17400CFB4E2 /* NotaFrescaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6373BA22B2F17400CFB4E2 /* NotaFrescaUITests.swift */; };
 		0D746ACF22CD7730007A86DF /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */; };
+		0D746AD122CEC362007A86DF /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746AD022CEC362007A86DF /* BaseModel.swift */; };
+		0D746AD522D0FEEA007A86DF /* NoteDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746AD422D0FEEA007A86DF /* NoteDataStruct.swift */; };
+		0D746AD722D11C2D007A86DF /* NSTableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746AD622D11C2D007A86DF /* NSTableViewExtension.swift */; };
 		0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF085D522B3025D00EBF9EC /* AppWindowController.swift */; };
 		1A8F683441A1656430E862F7 /* Pods_NotaFresca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */; };
 		3EC9C87C0DF45E468B3558E1 /* Pods_NotaFrescaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */; };
@@ -67,6 +70,9 @@
 		0D6373BA22B2F17400CFB4E2 /* NotaFrescaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaFrescaUITests.swift; sourceTree = "<group>"; };
 		0D6373BC22B2F17400CFB4E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		0D746AD022CEC362007A86DF /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		0D746AD422D0FEEA007A86DF /* NoteDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDataStruct.swift; sourceTree = "<group>"; };
+		0D746AD622D11C2D007A86DF /* NSTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableViewExtension.swift; sourceTree = "<group>"; };
 		0DF085D522B3025D00EBF9EC /* AppWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
 		0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
 		300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFresca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				0D00F58C22BC2D6700420EDD /* NoteModel.swift */,
+				0D746AD022CEC362007A86DF /* BaseModel.swift */,
+				0D746AD422D0FEEA007A86DF /* NoteDataStruct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */,
+				0D746AD622D11C2D007A86DF /* NSTableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,9 +487,12 @@
 				0D63739F22B2F17300CFB4E2 /* NoteViewController.swift in Sources */,
 				0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */,
 				0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */,
+				0D746AD722D11C2D007A86DF /* NSTableViewExtension.swift in Sources */,
 				0D746ACF22CD7730007A86DF /* DatabaseHelper.swift in Sources */,
 				0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */,
+				0D746AD522D0FEEA007A86DF /* NoteDataStruct.swift in Sources */,
 				0D00F58D22BC2D6700420EDD /* NoteModel.swift in Sources */,
+				0D746AD122CEC362007A86DF /* BaseModel.swift in Sources */,
 				0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */,
 				0D00F59822BC505900420EDD /* NoteRepository.swift in Sources */,
 				0D40114D22C1700F00A1EC0A /* StringTruncateExtension.swift in Sources */,

@@ -2,7 +2,7 @@
 import Foundation
 import Cocoa
 
-class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSTableViewClickableDelegate {
     @IBOutlet weak var browser: NSTableView?
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
@@ -10,51 +10,59 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     
     var notes: Array<NoteModel>?
     var activeNote: NoteModel?
-    var respository: NoteRepository = NoteRepository()
+    var repository: NoteRepository?
     var editor: NoteEditorViewController?
-
+    
+    public func initialise(repository: NoteRepository) {
+        self.repository = repository
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
         
-        browser?.delegate = self
-        browser?.dataSource = self
+        self.browser?.delegate = self
+        self.browser?.dataSource = self
+        self.repository = NoteRepository()
         
-        self.refresh()
+       self.refresh()
     }
     
     @objc func refresh(_ notification: NSNotification? = nil) {
-        let index : Int = 0
-        self.notes = self.respository.readAll()
-        self.editor?.setRepository(repository: self.respository)
+        let first : Int = 0
+        self.notes = self.repository?.readAll()
 
-        browser?.reloadData()
-        browser?.selectRowIndexes(NSIndexSet(index: index) as IndexSet, byExtendingSelection: false)
-        browser?.scrollRowToVisible(index)
+        self.browser?.reloadData()
+        self.browser?.selectRowIndexes(NSIndexSet(index: first) as IndexSet, byExtendingSelection: false)
+        self.browser?.scrollRowToVisible(first)
         
         if (self.notes?.count ?? 0 > 0) {
-            self.activeNote = self.notes?[index]
+            self.activeNote = self.notes?[first]
+            self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
         }
+        
+        self.editor?.empty()
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
-        let newNote = NoteModel(
-            title: "New note",
-            body: "Write something here..."
-        )
+        let newNote = NoteModel()
+        newNote.build(title: "Give it a great title...", body: "Now, let's get writing!")
         
-        if let index = self.respository.save(note: newNote) {
+        if let note = self.repository?.save(note: newNote) {
             self.refresh()
-            editor?.render(index: index, note: newNote)
+            self.editor?.render(index: note.getId(), note: note)
         }
     }
     
     @IBAction func removeNoteButton(_ sender: NSButton) {
-        if let selectedNote = browser?.selectedRow {
-            self.respository.delete(target: selectedNote)
-            self.refresh()
-            editor?.empty()
+        if let selectedIndex = browser?.selectedRow {
+            let selectedNote = self.notes?[selectedIndex]
+            
+            if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
+                self.refresh()
+                self.editor?.empty()
+            }
         }
     }
     
@@ -74,10 +82,22 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
             return nil
         }
         
-        cell?.title.stringValue = item.title;
-        cell?.bodyPreview.stringValue = (item.body.count > truncateLength) ? item.body.trunc(length: truncateLength) : item.body
-        cell?.created.stringValue = DateFormatHelper.toDateTime(date: item.created)
+        let body = item.getBody()
+        cell?.title.stringValue = item.getTitle()
+        cell?.bodyPreview.stringValue = (body.count > truncateLength) ? body.trunc(length: truncateLength) : body
+        cell?.created.stringValue = item.getCreatedString()
+        cell?.updated.stringValue = item.getUpdatedString()
         
         return cell
+    }
+    
+    @nonobjc func tableView(_ tableView: NSTableView, didClickRow selectedRow: Int) {
+        tableView.selectRowIndexes(NSIndexSet(index: selectedRow) as IndexSet, byExtendingSelection: false)
+        tableView.scrollRowToVisible(selectedRow)
+        
+        if selectedRow > -1, selectedRow < self.notes?.count ?? 0 {
+            self.activeNote = self.notes?[selectedRow]
+            self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
+        }
     }
 }

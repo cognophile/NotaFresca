@@ -701,7 +701,7 @@
         <!--NotaFresca-->
         <scene sceneID="wqK-nq-Y0r">
             <objects>
-                <splitViewController title="NotaFresca" storyboardIdentifier="CoreViewController" id="IJL-6D-9nf" customClass="NoteViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="NotaFresca" storyboardIdentifier="NoteViewController" id="IJL-6D-9nf" customClass="NoteViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Wtq-K0-Eah"/>
                         <splitViewItem id="Vz3-rE-rsF"/>
@@ -738,7 +738,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="B2N-V0-5Nl">
                                     <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="94" rowSizeStyle="automatic" viewBased="YES" id="V32-IE-4KG">
                                             <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
@@ -783,9 +783,18 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLs-FR-b4o">
-                                                                    <rect key="frame" x="135" y="2" width="79" height="15"/>
+                                                                    <rect key="frame" x="1" y="3" width="79" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="FAo-tx-cCJ">
+                                                                        <font key="font" size="9" name="Avenir-Light"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTn-Lj-L4S">
+                                                                    <rect key="frame" x="138" y="3" width="79" height="15"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="QUh-Uo-pnW">
                                                                         <font key="font" size="9" name="Avenir-Light"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -796,6 +805,7 @@
                                                                 <outlet property="bodyPreview" destination="q4L-pv-KH4" id="6qr-gd-E08"/>
                                                                 <outlet property="created" destination="HLs-FR-b4o" id="4RM-ff-s5z"/>
                                                                 <outlet property="title" destination="y5L-dh-vFr" id="ilh-F6-A9m"/>
+                                                                <outlet property="updated" destination="gTn-Lj-L4S" id="sYZ-BD-J2R"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -878,7 +888,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="ghM-jx-e7P">
                                     <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" verticallyResizable="YES" continuousSpellChecking="YES" spellingCorrection="YES" grammarChecking="YES" smartInsertDelete="YES" id="EAF-AY-15n">
                                             <rect key="frame" x="0.0" y="0.0" width="759" height="697"/>
@@ -909,6 +919,15 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kbb-pL-yiC">
+                                <rect key="frame" x="695" y="12" width="86" height="18"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="id1-oc-yIf">
+                                    <font key="font" size="10" name="Avenir-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -916,6 +935,7 @@
                         <outlet property="bodyTextView" destination="EAF-AY-15n" id="S7k-Qs-ZPf"/>
                         <outlet property="createdLabel" destination="PA0-9F-jMK" id="KCh-Qc-Del"/>
                         <outlet property="titlePane" destination="9sq-Xt-SBd" id="Edo-KF-DjK"/>
+                        <outlet property="updatedLabel" destination="Kbb-pL-yiC" id="Wy4-h5-AX4"/>
                     </connections>
                 </viewController>
                 <customObject id="EMS-3s-xwz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

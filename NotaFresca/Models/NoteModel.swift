@@ -1,18 +1,68 @@
 
 import Foundation
+import SQLite
 
-public struct NoteModel: Equatable {
-    let title: String
-    let body: String
-    let created: Date
+class NoteModel: BaseModel {
+    let title = Expression<String?>("title")
+    let body = Expression<String?>("body")
+    let created = Expression<String?>("created")
+    let updated = Expression<String?>("updated")
     
-    init(title: String, body: String, created: Date = Date()) {
-        self.title = title
-        self.body = body
-        self.created = created
+    var data: NoteDataStruct = NoteDataStruct()
+    var record: Row?
+
+    override init() {
+        super.init()
+        self.table = Table("notes")
+    }
+    
+    public func getId() -> Int {
+        return try! (record?.get(self.id))!
+    }
+    
+    public func getTitle() -> String {
+        return try! (record?.get(self.title))!
+    }
+    
+    public func getBody() -> String {
+        return try! (record?.get(self.body))!
     }
     
     public func getCreatedString() -> String {
-        return DateFormatHelper.toDateTime(date: self.created)
+        let created = try! (record?.get(self.created))!
+        return created 
+    }
+    
+    public func getUpdatedString() -> String {
+        let updated = try! (record?.get(self.updated))!
+        return updated
+    }
+    
+    override func createTable() -> String {
+        return (self.table?.create(ifNotExists: true) {
+            t in
+                t.column(self.id, primaryKey: true)
+                t.column(self.title)
+                t.column(self.body)
+                t.column(self.created)
+                t.column(self.updated)
+            })!
+    }
+    
+    public func build(title: String, body: String) {
+        let created = DateFormatHelper.toDateTimeString(date: Date())
+        let updated = created
+        
+        self.data.title = title
+        self.data.body = body
+        self.data.created = created
+        self.data.updated = updated
+    }
+    
+    public func modify(title: String, body: String, created: String, updated: String) {
+        self.data.title = title
+        self.data.body = body
+        self.data.created = created
+        self.data.updated = updated
     }
 }
