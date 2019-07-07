@@ -2,7 +2,7 @@
 import Foundation
 import Cocoa
 
-class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSTableViewClickableDelegate {
+class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSTableViewClickableDelegate, NoteEditorSyncDelegate {
     @IBOutlet weak var browser: NSTableView?
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
@@ -13,20 +13,18 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     var repository: NoteRepository?
     var editor: NoteEditorViewController?
     
-    public func initialise(repository: NoteRepository) {
-        self.repository = repository
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.repository = NoteRepository()
         
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
         
         self.browser?.delegate = self
         self.browser?.dataSource = self
-        self.repository = NoteRepository()
-        
-       self.refresh()
+        self.editor?.syncDelegate = self
+
+        self.refresh()
     }
     
     @objc func refresh(_ notification: NSNotification? = nil) {
@@ -40,30 +38,19 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         if (self.notes?.count ?? 0 > 0) {
             self.activeNote = self.notes?[first]
             self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
-        }
-        
-        self.editor?.empty()
+        }        
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
-        let newNote = NoteModel()
-        newNote.build(title: "Give it a great title...", body: "Now, let's get writing!")
-        
-        if let note = self.repository?.save(note: newNote) {
-            self.refresh()
-            self.editor?.render(index: note.getId(), note: note)
-        }
+        self.createNote()
     }
     
     @IBAction func removeNoteButton(_ sender: NSButton) {
-        if let selectedIndex = browser?.selectedRow {
-            let selectedNote = self.notes?[selectedIndex]
-            
-            if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
-                self.refresh()
-                self.editor?.empty()
-            }
-        }
+        self.deleteNote()
+    }
+    
+    func updateBrowser(_ sender: NoteEditorViewController) {
+        self.refresh()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -98,6 +85,31 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         if selectedRow > -1, selectedRow < self.notes?.count ?? 0 {
             self.activeNote = self.notes?[selectedRow]
             self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
+        }
+    }
+    
+    public func createNote() {
+        let newNote = NoteModel()
+        newNote.build(title: "Give it a great title...", body: "Now, let's get writing!")
+        
+        if let note = self.repository?.save(note: newNote) {
+            self.refresh()
+            self.editor?.render(index: note.getId(), note: note)
+        }
+    }
+    
+    public func deleteNote() {
+        let isConfirmed = DialogHelper.confirm(header: "Woah there...", body: "You're about to permenantly delete this note. Are you sure you wish to proceed?")
+        
+        if (isConfirmed) {
+            if let selectedIndex = browser?.selectedRow {
+                let selectedNote = self.notes?[selectedIndex]
+                
+                if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
+                    self.refresh()
+                    self.editor?.empty()
+                }
+            }
         }
     }
 }

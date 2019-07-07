@@ -5,17 +5,30 @@ import Cocoa
 class NoteViewController: NSSplitViewController {
     @IBOutlet weak var browser: NSSplitViewItem!
     @IBOutlet weak var editor: NSSplitViewItem!
-        
+    
+    var browserController: NoteBrowserViewController?
+    var editorController: NoteEditorViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        let browserController = browser.viewController as? NoteBrowserViewController
-        let editorController = editor.viewController as? NoteEditorViewController
-        browserController?.editor = editorController
+        
+        self.browserController = self.browser.viewController as? NoteBrowserViewController
+        self.editorController = self.editor.viewController as? NoteEditorViewController
+
+        self.editorController?.syncDelegate = self.browserController
+        self.browserController?.editor = self.editorController
     }
     
     override var representedObject: Any? {
         didSet {
         }
+    }
+    
+    @IBAction func menuNewNote(_ sender: Any) {
+        self.browserController?.createNote()
+    }
+    
+    @IBAction func menuDeleteNote(_ sender: Any) {
+        self.browserController?.deleteNote()
     }
 }

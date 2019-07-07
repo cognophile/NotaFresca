@@ -12,16 +12,20 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     @IBOutlet weak var titlePane: NSTextField!
     @IBOutlet weak var updatedLabel: NSTextField!
     
+    private let TIME_DELAY_FACTOR: Double = 1.0
+    
     var note: NoteModel?
     var repository: NoteRepository?
     var browserIndex: Int?
     var timer: Timer? = Timer()
+
+    weak var syncDelegate: NoteEditorSyncDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.repository = NoteRepository()
-        
+                
         self.bodyTextView.delegate = self
         self.titlePane.delegate = self
         self.bodyPane.documentView = self.bodyTextView
@@ -47,7 +51,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
         }
 
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.updateNoteTitle), userInfo: textField.stringValue, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: self.TIME_DELAY_FACTOR, target: self, selector: #selector(self.updateNoteTitle), userInfo: textField.stringValue, repeats: false)
     }
     
     public func textDidChange(_ notification: Notification) {
@@ -56,7 +60,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
         }
 
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.updateNoteBody), userInfo: textView.string, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: self.TIME_DELAY_FACTOR, target: self, selector: #selector(self.updateNoteBody), userInfo: textView.string, repeats: false)
     }
     
     @objc private func updateNoteTitle() {
@@ -67,6 +71,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
             self.note = self.repository?.readOne(target: self.browserIndex!)
         }
 
+        self.syncDelegate?.updateBrowser(self)
         self.timer?.invalidate()
     }
     
@@ -78,6 +83,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
             self.note = self.repository?.readOne(target: self.browserIndex!)
         }
 
+        self.syncDelegate?.updateBrowser(self)
         self.timer?.invalidate()
     }
     
