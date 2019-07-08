@@ -4,8 +4,6 @@ import Cocoa
 import Down
 
 class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFieldDelegate {
-    @IBOutlet weak var titleLabel: NSTextField?
-    @IBOutlet weak var bodyLabel: NSTextField?
     @IBOutlet weak var createdLabel: NSTextField?
     @IBOutlet weak var bodyPane: NSScrollView!
     @IBOutlet weak var bodyTextView: NSTextView!
@@ -14,7 +12,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     
     private let TIME_DELAY_FACTOR: Double = 1.0
     
-    var note: NoteModel?
+    var activeNote: NoteModel?
     var repository: NoteRepository?
     var browserIndex: Int?
     var timer: Timer? = Timer()
@@ -66,11 +64,11 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     @objc private func updateNoteTitle() {
         let updated = DateFormatHelper.toDateTimeString(date: Date())
         
-        if self.note != nil {
-            self.note?.modify(title: self.timer?.userInfo as! String, body: (self.note?.getBody())!, created: (self.note?.getCreatedString())!, updated: updated)
+        if self.activeNote != nil {
+            self.activeNote?.modify(title: self.timer?.userInfo as! String, body: (self.activeNote?.getBody())!, created: (self.activeNote?.getCreatedString())!, updated: updated)
             
-            if let edited = self.repository?.update(note: self.note!) {
-                self.note = self.repository?.readOne(target: self.browserIndex!)
+            if let edited = self.repository?.update(note: self.activeNote!) {
+                self.activeNote = self.repository?.readOne(target: self.browserIndex!)
             }
             
             self.syncDelegate?.updateBrowser(self)
@@ -81,11 +79,11 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     @objc private func updateNoteBody() {
         let updated = DateFormatHelper.toDateTimeString(date: Date())
         
-        if self.note != nil {
-            self.note?.modify(title: (self.note?.getTitle())!, body: self.timer?.userInfo as! String, created: (self.note?.getCreatedString())!, updated: updated)
+        if self.activeNote != nil {
+            self.activeNote?.modify(title: (self.activeNote?.getTitle())!, body: self.timer?.userInfo as! String, created: (self.activeNote?.getCreatedString())!, updated: updated)
             
-            if let edited = self.repository?.update(note: self.note!) {
-                self.note = self.repository?.readOne(target: self.browserIndex!)
+            if let edited = self.repository?.update(note: self.activeNote!) {
+                self.activeNote = self.repository?.readOne(target: self.browserIndex!)
             }
             
             self.syncDelegate?.updateBrowser(self)
@@ -102,14 +100,14 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     
     private func setActiveNote(index: Int?, note: NoteModel?) {
         self.browserIndex = index
-        self.note = note
+        self.activeNote = note
     }
     
     private func displayNote() {
-        self.titlePane.stringValue = self.note?.getTitle() ?? ""
+        self.titlePane.stringValue = self.activeNote?.getTitle() ?? ""
         self.bodyTextView.string = "";
-        self.bodyPane.documentView!.insertText(self.note?.getBody() ?? "")
-        self.createdLabel?.stringValue = self.note?.getCreatedString() ?? ""
-        self.updatedLabel?.stringValue = self.note?.getUpdatedString() ?? ""
+        self.bodyPane.documentView!.insertText(self.activeNote?.getBody() ?? "")
+        self.createdLabel?.stringValue = self.activeNote?.getCreatedString() ?? ""
+        self.updatedLabel?.stringValue = self.activeNote?.getUpdatedString() ?? ""
     }
 }

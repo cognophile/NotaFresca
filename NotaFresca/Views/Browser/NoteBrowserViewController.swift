@@ -9,36 +9,42 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     @IBOutlet weak var remove: NSButton!
     
     var notes: Array<NoteModel>?
+    var selectedIndex: Int?
     var activeNote: NoteModel?
     var repository: NoteRepository?
     var editor: NoteEditorViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.repository = NoteRepository()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
         
         self.browser?.delegate = self
         self.browser?.dataSource = self
         self.editor?.syncDelegate = self
 
-        self.refresh()
+        self.refreshBrowserSelection()
     }
     
     @objc func refresh(_ notification: NSNotification? = nil) {
-        let first : Int = 0
         self.notes = self.repository?.readAll()
-
         self.browser?.reloadData()
-        self.browser?.selectRowIndexes(NSIndexSet(index: first) as IndexSet, byExtendingSelection: false)
-        self.browser?.scrollRowToVisible(first)
-        
-        if (self.notes?.count ?? 0 > 0) {
-            self.activeNote = self.notes?[first]
-            self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
-        }        
+
+        if let selected = self.selectedIndex {
+            self.browser?.selectRowIndexes(NSIndexSet(index: selected) as IndexSet, byExtendingSelection: false)
+            self.browser?.scrollRowToVisible(selected)
+            
+            if (self.notes?.count ?? 0 > 0) {
+                self.activeNote = self.notes?[selected]
+                self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
+            }
+        }
+        else {
+            let defaultIndex = 0
+            self.browser?.selectRowIndexes(NSIndexSet(index: defaultIndex) as IndexSet, byExtendingSelection: false)
+            self.browser?.scrollRowToVisible(defaultIndex)
+        }
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
@@ -50,7 +56,7 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     func updateBrowser(_ sender: NoteEditorViewController) {
-        self.refresh()
+        self.refreshBrowserSelection()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -79,12 +85,10 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     @nonobjc func tableView(_ tableView: NSTableView, didClickRow selectedRow: Int) {
-        tableView.selectRowIndexes(NSIndexSet(index: selectedRow) as IndexSet, byExtendingSelection: false)
-        tableView.scrollRowToVisible(selectedRow)
-        
         if selectedRow > -1, selectedRow < self.notes?.count ?? 0 {
             self.activeNote = self.notes?[selectedRow]
             self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
+            self.refreshBrowserSelection(indexToHighlight: selectedRow)
         }
     }
     
@@ -93,7 +97,7 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
         newNote.build(title: "Give it a great title...", body: "Now, let's get writing!")
         
         if let note = self.repository?.save(note: newNote) {
-            self.refresh()
+            self.refreshBrowserSelection(indexToHighlight: self.notes?.count ?? 0)
             self.editor?.render(index: note.getId(), note: note)
         }
     }
@@ -106,10 +110,21 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
                 let selectedNote = self.notes?[selectedIndex]
                 
                 if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
-                    self.refresh()
+                    if self.selectedIndex ?? 0 > 0 {
+                        self.selectedIndex? -= 1
+                    }
+                    self.refreshBrowserSelection()
                     self.editor?.empty()
                 }
             }
         }
+    }
+    
+    private func refreshBrowserSelection(indexToHighlight: Int? = nil) {
+        if let selected = indexToHighlight {
+            self.selectedIndex = selected
+        }
+        
+        return self.refresh()
     }
 }
