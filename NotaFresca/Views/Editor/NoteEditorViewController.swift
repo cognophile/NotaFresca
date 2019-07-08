@@ -65,26 +65,32 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     
     @objc private func updateNoteTitle() {
         let updated = DateFormatHelper.toDateTimeString(date: Date())
-        self.note?.modify(title: self.timer?.userInfo as! String, body: (self.note?.getBody())!, created: (self.note?.getCreatedString())!, updated: updated)
         
-        if let edited = self.repository?.update(note: self.note!) {
-            self.note = self.repository?.readOne(target: self.browserIndex!)
+        if self.note != nil {
+            self.note?.modify(title: self.timer?.userInfo as! String, body: (self.note?.getBody())!, created: (self.note?.getCreatedString())!, updated: updated)
+            
+            if let edited = self.repository?.update(note: self.note!) {
+                self.note = self.repository?.readOne(target: self.browserIndex!)
+            }
+            
+            self.syncDelegate?.updateBrowser(self)
+            self.timer?.invalidate()
         }
-
-        self.syncDelegate?.updateBrowser(self)
-        self.timer?.invalidate()
     }
     
     @objc private func updateNoteBody() {
         let updated = DateFormatHelper.toDateTimeString(date: Date())
-        self.note?.modify(title: (self.note?.getTitle())!, body: self.timer?.userInfo as! String, created: (self.note?.getCreatedString())!, updated: updated)
         
-        if let edited = self.repository?.update(note: self.note!) {
-            self.note = self.repository?.readOne(target: self.browserIndex!)
+        if self.note != nil {
+            self.note?.modify(title: (self.note?.getTitle())!, body: self.timer?.userInfo as! String, created: (self.note?.getCreatedString())!, updated: updated)
+            
+            if let edited = self.repository?.update(note: self.note!) {
+                self.note = self.repository?.readOne(target: self.browserIndex!)
+            }
+            
+            self.syncDelegate?.updateBrowser(self)
+            self.timer?.invalidate()
         }
-
-        self.syncDelegate?.updateBrowser(self)
-        self.timer?.invalidate()
     }
     
     private func hideLabels(hide: Bool) {
