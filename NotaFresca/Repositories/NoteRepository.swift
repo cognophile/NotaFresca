@@ -2,30 +2,26 @@
 import Foundation
 import SQLite
 
-class NoteRepository {
+class NoteRepository: BaseRepository {
     private var data = [NoteModel]()
     private var model = NoteModel()
-    private let database = DatabaseHelper()
     
-    init() {
+    override init() {
+        super.init()
         self.database.createTable(model: self.model)
     }
     
     public func readAll() -> Array<NoteModel> {
         let records = Array(self.database.selectAll(model: self.model)!)
-        var notes = [NoteModel]()
-        
-        for line in records {
-            let note = self.rowToObject(record: line)
-            notes.append(note)
-        }
+        let notes = self.transformMultipleRows(rows: records)
         
         return notes
     }
     
     public func readOne(target: Int) -> NoteModel {
         let record = self.database.selectOne(model: self.model, index: target)
-        let note = self.rowToObject(record: record!)
+        let note = self.transformRow(row: record!)
+        
         return note
     }
     
@@ -54,22 +50,44 @@ class NoteRepository {
     }
 
     public func delete(target: Int) -> Bool {
-        if let deletedId = self.database.delete(model: self.model, index: target) {
+        if self.database.delete(model: self.model, index: target) != nil {
             return true
         }
         
         return false
     }
     
-    private func rowToObject(record: Row) -> NoteModel {
+    public func find(term: String, notes: [NoteModel]) -> Array<NoteModel> {
+        let notes = Array(self.database.selectAll(model: self.model)!)
+        
+        let results = notes.filter { item in return
+            (item[self.model.title]?.lowercased().contains(term.lowercased()))! ||
+            (item[self.model.body]?.lowercased().contains(term.lowercased()))!
+        }
+        
+        return self.transformMultipleRows(rows: results)
+    }
+    
+    private func transformMultipleRows(rows: [Row]) -> [NoteModel] {
+        var notes = [NoteModel]()
+        
+        for line in rows {
+            let noteObject = self.transformRow(row: line)
+            notes.append(noteObject)
+        }
+        
+        return notes
+    }
+    
+    private func transformRow(row: Row) -> NoteModel {
         let note = NoteModel()
         
-        note.record = record
-        note.data.id = record[note.id]
-        note.data.title = record[note.title]
-        note.data.body = record[note.body]
-        note.data.created = record[note.created]
-        note.data.updated = record[note.updated]
+        note.record = row
+        note.data.id = row[note.id]
+        note.data.title = row[note.title]
+        note.data.body = row[note.body]
+        note.data.created = row[note.created]
+        note.data.updated = row[note.updated]
         
         return note
     }

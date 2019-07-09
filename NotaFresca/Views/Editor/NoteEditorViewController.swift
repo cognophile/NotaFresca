@@ -10,7 +10,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     @IBOutlet weak var titlePane: NSTextField!
     @IBOutlet weak var updatedLabel: NSTextField!
     
-    private let TIME_DELAY_FACTOR: Double = 1.0
+    private let TIME_DELAY_FACTOR: Double = 0.8
     
     var activeNote: NoteModel?
     var repository: NoteRepository?
@@ -53,7 +53,7 @@ class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFiel
     }
     
     public func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView, self.bodyTextView.identifier == textView.identifier else {
+        guard let textView = notification.object as? NSTextView, self.bodyTextView.identifier == textView.identifier, self.bodyTextView.string == textView.string else {
             return
         }
 

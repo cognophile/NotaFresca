@@ -45,7 +45,7 @@ class DatabaseHelper {
     public func update(model: BaseModel, index: Int, query: [Setter]) -> Row? {
         guard let statement = model.table?.filter(model.id == index) else { return nil }
         
-        if let record = try! self.connection?.run(statement.update(query)) {
+        if (try! self.connection?.run(statement.update(query))) != nil {
             if let updated = try! self.connection?.pluck(statement) {
                 return updated
             }
