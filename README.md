@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/cognophile/NotaFresca.svg?branch=master)](https://travis-ci.com/cognophile/NotaFresca) 
+
 <img src="https://image.flaticon.com/icons/svg/148/148990.svg" alt="contrast-icon" width="64" height="64" align="right" hspace="0" vspace="3"/>
 
 ## NotaFresca

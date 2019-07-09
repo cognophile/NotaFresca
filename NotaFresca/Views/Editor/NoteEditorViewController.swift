@@ -1,7 +1,6 @@
 
 import Foundation
 import Cocoa
-import Down
 
 class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFieldDelegate {
     @IBOutlet weak var createdLabel: NSTextField?
