@@ -1,7 +1,7 @@
 PODS:
   - Down (0.8.5)
   - SQLite.swift (0.12.2):
-    - SQLite.swift/standard (0.12.2)
+    - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
 
 DEPENDENCIES:
