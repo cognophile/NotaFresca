@@ -7,4 +7,5 @@ xcode_destination: platform=masOS
 
 before_install:
   - gem install cocoapods -v '1.7.3'
+  - pod repo update
 
