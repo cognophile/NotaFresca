@@ -27,10 +27,10 @@
 		0D746ADC22D2939D007A86DF /* NoteEditorSyncDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ADB22D2939D007A86DF /* NoteEditorSyncDelegate.swift */; };
 		0D746ADE22D29CFA007A86DF /* DialogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ADD22D29CFA007A86DF /* DialogHelper.swift */; };
 		0D746AE022D542D9007A86DF /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ADF22D542D9007A86DF /* BaseRepository.swift */; };
+		0D8EED7DBEC6A83F66DB142E /* Pods_NotaFrescaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196997861758C96B48885A79 /* Pods_NotaFrescaTests.framework */; };
 		0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF085D522B3025D00EBF9EC /* AppWindowController.swift */; };
-		1A8F683441A1656430E862F7 /* Pods_NotaFresca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */; };
-		3EC9C87C0DF45E468B3558E1 /* Pods_NotaFrescaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */; };
-		FA39CCEBA17724346B081B9C /* Pods_NotaFrescaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C366A13960F6D4E2560E3F74 /* Pods_NotaFrescaTests.framework */; };
+		4A5D298EA195C45E16090A62 /* Pods_NotaFrescaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEE814BC3E66560137D9D5A /* Pods_NotaFrescaUITests.framework */; };
+		D7F54A6EC7DE43B6D649A879 /* Pods_NotaFresca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C328979385E9A7F555CE7346 /* Pods_NotaFresca.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0D00F58C22BC2D6700420EDD /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		0D00F58E22BC2E4800420EDD /* NoteBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserViewController.swift; sourceTree = "<group>"; };
 		0D00F59022BC2EF700420EDD /* NoteBrowserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBrowserCellView.swift; sourceTree = "<group>"; };
@@ -80,14 +79,15 @@
 		0D746ADD22D29CFA007A86DF /* DialogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogHelper.swift; sourceTree = "<group>"; };
 		0D746ADF22D542D9007A86DF /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		0DF085D522B3025D00EBF9EC /* AppWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
-		0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
-		300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFresca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.release.xcconfig"; sourceTree = "<group>"; };
-		A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C366A13960F6D4E2560E3F74 /* Pods_NotaFrescaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
-		E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		196997861758C96B48885A79 /* Pods_NotaFrescaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0A6B6724A84A1896CB4E60 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
+		51E87223DF0975A125B8C152 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
+		5AA42E22A7EE72B521FB4856 /* Pods-NotaFrescaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9B003FB5815D5B42826B713A /* Pods-NotaFrescaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaTests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaTests/Pods-NotaFrescaTests.release.xcconfig"; sourceTree = "<group>"; };
+		AFEE814BC3E66560137D9D5A /* Pods_NotaFrescaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C328979385E9A7F555CE7346 /* Pods_NotaFresca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFresca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16EE09163DCD9DBF1BC9B31 /* Pods-NotaFrescaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.release.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FB77D463926751B0C318FF5E /* Pods-NotaFrescaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFrescaUITests.debug.xcconfig"; path = "Target Support Files/Pods-NotaFrescaUITests/Pods-NotaFrescaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A8F683441A1656430E862F7 /* Pods_NotaFresca.framework in Frameworks */,
+				D7F54A6EC7DE43B6D649A879 /* Pods_NotaFresca.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA39CCEBA17724346B081B9C /* Pods_NotaFrescaTests.framework in Frameworks */,
+				0D8EED7DBEC6A83F66DB142E /* Pods_NotaFrescaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EC9C87C0DF45E468B3558E1 /* Pods_NotaFrescaUITests.framework in Frameworks */,
+				4A5D298EA195C45E16090A62 /* Pods_NotaFrescaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +190,8 @@
 				0D6373AE22B2F17400CFB4E2 /* NotaFrescaTests */,
 				0D6373B922B2F17400CFB4E2 /* NotaFrescaUITests */,
 				0D63739A22B2F17300CFB4E2 /* Products */,
-				907FDFFF71D6EC19636CCE03 /* Frameworks */,
 				BDA4DE41ED29F0FDE3BE2EC6 /* Pods */,
+				9F32362FC12609442CDFEFF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,12 +258,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		907FDFFF71D6EC19636CCE03 /* Frameworks */ = {
+		9F32362FC12609442CDFEFF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				300FF06F0B1E95E215A205E2 /* Pods_NotaFresca.framework */,
-				C366A13960F6D4E2560E3F74 /* Pods_NotaFrescaTests.framework */,
-				F94469192A384B2DCA418483 /* Pods_NotaFrescaUITests.framework */,
+				C328979385E9A7F555CE7346 /* Pods_NotaFresca.framework */,
+				196997861758C96B48885A79 /* Pods_NotaFrescaTests.framework */,
+				AFEE814BC3E66560137D9D5A /* Pods_NotaFrescaUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,12 +271,12 @@
 		BDA4DE41ED29F0FDE3BE2EC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */,
-				0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */,
-				E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */,
-				3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */,
-				A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */,
-				0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */,
+				1F0A6B6724A84A1896CB4E60 /* Pods-NotaFresca.debug.xcconfig */,
+				51E87223DF0975A125B8C152 /* Pods-NotaFresca.release.xcconfig */,
+				5AA42E22A7EE72B521FB4856 /* Pods-NotaFrescaTests.debug.xcconfig */,
+				9B003FB5815D5B42826B713A /* Pods-NotaFrescaTests.release.xcconfig */,
+				FB77D463926751B0C318FF5E /* Pods-NotaFrescaUITests.debug.xcconfig */,
+				D16EE09163DCD9DBF1BC9B31 /* Pods-NotaFrescaUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -288,11 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D6373BF22B2F17400CFB4E2 /* Build configuration list for PBXNativeTarget "NotaFresca" */;
 			buildPhases = (
-				99D53551AB1FEBFED2BDCB10 /* [CP] Check Pods Manifest.lock */,
-				0D63739522B2F17300CFB4E2 /* Sources */,
+				980AD058F8466971BE6FD7A8 /* [CP] Check Pods Manifest.lock */,
 				0D63739622B2F17300CFB4E2 /* Frameworks */,
 				0D63739722B2F17300CFB4E2 /* Resources */,
-				54A0B0B9E13DC1BB444A59D9 /* [CP] Embed Pods Frameworks */,
+				C666A947CDF6C8A1DC6A77C1 /* [CP] Embed Pods Frameworks */,
+				0D63739522B2F17300CFB4E2 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -307,7 +307,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D6373C222B2F17400CFB4E2 /* Build configuration list for PBXNativeTarget "NotaFrescaTests" */;
 			buildPhases = (
-				24C4AA13E33E049ACF9F34A9 /* [CP] Check Pods Manifest.lock */,
+				BC7DC2F43C6E0E4DEFE1D618 /* [CP] Check Pods Manifest.lock */,
 				0D6373A722B2F17400CFB4E2 /* Sources */,
 				0D6373A822B2F17400CFB4E2 /* Frameworks */,
 				0D6373A922B2F17400CFB4E2 /* Resources */,
@@ -326,7 +326,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D6373C522B2F17400CFB4E2 /* Build configuration list for PBXNativeTarget "NotaFrescaUITests" */;
 			buildPhases = (
-				B14DBC025FAD871A308A9694 /* [CP] Check Pods Manifest.lock */,
+				1B362E696FD80E1179B03ABE /* [CP] Check Pods Manifest.lock */,
 				0D6373B222B2F17400CFB4E2 /* Sources */,
 				0D6373B322B2F17400CFB4E2 /* Frameworks */,
 				0D6373B422B2F17400CFB4E2 /* Resources */,
@@ -411,7 +411,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24C4AA13E33E049ACF9F34A9 /* [CP] Check Pods Manifest.lock */ = {
+		1B362E696FD80E1179B03ABE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,31 +426,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NotaFrescaTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NotaFrescaUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54A0B0B9E13DC1BB444A59D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		99D53551AB1FEBFED2BDCB10 /* [CP] Check Pods Manifest.lock */ = {
+		980AD058F8466971BE6FD7A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,7 +455,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B14DBC025FAD871A308A9694 /* [CP] Check Pods Manifest.lock */ = {
+		BC7DC2F43C6E0E4DEFE1D618 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -487,11 +470,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NotaFrescaUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NotaFrescaTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C666A947CDF6C8A1DC6A77C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NotaFresca/Pods-NotaFresca-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -681,7 +681,7 @@
 		};
 		0D6373C022B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB1D56E3474981AC8717AFD8 /* Pods-NotaFresca.debug.xcconfig */;
+			baseConfigurationReference = 1F0A6B6724A84A1896CB4E60 /* Pods-NotaFresca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NotaFresca/NotaFresca.entitlements;
@@ -701,7 +701,7 @@
 		};
 		0D6373C122B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E3717C642A812CD6406AE72 /* Pods-NotaFresca.release.xcconfig */;
+			baseConfigurationReference = 51E87223DF0975A125B8C152 /* Pods-NotaFresca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NotaFresca/NotaFresca.entitlements;
@@ -721,7 +721,7 @@
 		};
 		0D6373C322B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E082D6CD155A8A81EB409580 /* Pods-NotaFrescaTests.debug.xcconfig */;
+			baseConfigurationReference = 5AA42E22A7EE72B521FB4856 /* Pods-NotaFrescaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -742,7 +742,7 @@
 		};
 		0D6373C422B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CC396127711A2E9821364FC /* Pods-NotaFrescaTests.release.xcconfig */;
+			baseConfigurationReference = 9B003FB5815D5B42826B713A /* Pods-NotaFrescaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -763,7 +763,7 @@
 		};
 		0D6373C622B2F17400CFB4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2B41A0F0804421DF3E3589C /* Pods-NotaFrescaUITests.debug.xcconfig */;
+			baseConfigurationReference = FB77D463926751B0C318FF5E /* Pods-NotaFrescaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -783,7 +783,7 @@
 		};
 		0D6373C722B2F17400CFB4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AF97121222A9E1B5826457A /* Pods-NotaFrescaUITests.release.xcconfig */;
+			baseConfigurationReference = D16EE09163DCD9DBF1BC9B31 /* Pods-NotaFrescaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
