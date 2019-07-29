@@ -109,6 +109,9 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     public func deleteNote() {
+        // var i18n = I18nHelper(locale: "en-GB")
+        // let message = i18n.locateMessage(category: "Buttons", key: "Cancel")
+        
         let isConfirmed = DialogHelper.confirm(header: "Woah there...", body: "You're about to permenantly delete this note. Are you sure you wish to proceed?")
         
         if (isConfirmed) {

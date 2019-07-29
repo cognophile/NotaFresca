@@ -9,9 +9,21 @@ class DialogHelper {
         dialog.messageText = header
         dialog.informativeText = body
         
-        dialog.alertStyle = .warning
+        dialog.alertStyle = NSAlert.Style.warning
         dialog.addButton(withTitle: "Delete")
         dialog.addButton(withTitle: "Cancel")
+        
+        return dialog.runModal() == .alertFirstButtonReturn
+    }
+    
+    public static func error(header: String, body: String) -> Bool {
+        let dialog = self.createDialog()
+        
+        dialog.messageText = header
+        dialog.informativeText = body
+        
+        dialog.alertStyle = NSAlert.Style.critical
+        dialog.addButton(withTitle: "Continue")
         
         return dialog.runModal() == .alertFirstButtonReturn
     }
