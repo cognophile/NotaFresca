@@ -1,10 +1,3 @@
-//
-//  NoteDataStruct.swift
-//  NotaFresca
-//
-//  Created by Alex Boggis on 06/07/2019.
-//  Copyright © 2019 cognophile. All rights reserved.
-//
 
 import Foundation
 

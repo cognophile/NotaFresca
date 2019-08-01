@@ -11,7 +11,7 @@ class NoteViewController: NSSplitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.browserController = self.browser.viewController as? NoteBrowserViewController
         self.editorController = self.editor.viewController as? NoteEditorViewController
 

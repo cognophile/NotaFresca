@@ -1,0 +1,102 @@
+{
+    "en": {
+        "Templates": {
+            "Note.Title": "Give it a great title...",
+            "Note.Body": "Now, let's get writing!"
+        },
+        "Buttons": {
+            "Cancel": "Cancel",
+            "Remove": "Delete",
+            "Continue": "Continue"
+        },
+        "Headers": {
+            "Warning": "Wait a second..."
+        },
+        "Body": {
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+        },
+        "Errors": {
+            
+        }
+    },
+    "en-GB": {
+        "Templates": {
+            "Note.Title": "Give it a great title...",
+            "Note.Body": "Now, let's get writing!"
+        },
+        "Buttons": {
+            "Cancel": "Cancel",
+            "Remove": "Delete",
+            "Continue": "Continue"
+        },
+        "Headers": {
+            "Warning": "Wait a second..."
+        },
+        "Body": {
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+        },
+        "Errors": {
+            
+        }
+    },
+    "en-US": {
+        "Templates": {
+            "Note.Title": "Give it a great title...",
+            "Note.Body": "Now, let's get writing!"
+        },
+        "Buttons": {
+            "Cancel": "Cancel",
+            "Remove": "Delete",
+            "Continue": "Continue"
+        },
+        "Headers": {
+            "Warning": "Wait a second..."
+        },
+        "Body": {
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+        },
+        "Errors": {
+            
+        }
+    },
+    "it-GB": {
+        "Templates": {
+            "Note.Title": "Dai un titolo eccezionale...",
+            "Note.Body": "Ora scriviamo!"
+        },
+        "Buttons": {
+            "Cancel": "Annulla",
+            "Remove": "Elimina",
+            "Continue": "Continua"
+        },
+        "Headers": {
+            "Warning": "Aspetta un secondo..."
+        },
+        "Body": {
+            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
+        },
+        "Errors": {
+            
+        }
+    },
+    "it-IT": {
+        "Templates": {
+            "Note.Title": "Dai un titolo eccezionale...",
+            "Note.Body": "Ora scriviamo!"
+        },
+        "Buttons": {
+            "Cancel": "Annulla",
+            "Remove": "Elimina",
+            "Continue": "Continua"
+        },
+        "Headers": {
+            "Warning": "Aspetta un secondo..."
+        },
+        "Body": {
+            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
+        },
+        "Errors": {
+            
+        }
+    }
+}

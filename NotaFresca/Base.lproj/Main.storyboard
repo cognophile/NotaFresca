@@ -624,7 +624,7 @@
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
-                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="iwa-gc-5KM"/>
+                                                <action selector="toggleSidebar:" target="Ady-hI-5gd" id="G9C-ja-pY7"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -708,7 +708,7 @@
             <objects>
                 <splitViewController title="NotaFresca" storyboardIdentifier="NoteViewController" id="IJL-6D-9nf" customClass="NoteViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem id="Wtq-K0-Eah"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="Wtq-K0-Eah"/>
                         <splitViewItem id="Vz3-rE-rsF"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="iar-Mb-DaB">
@@ -739,13 +739,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="96" horizontalPageScroll="10" verticalLineScroll="96" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC6-Lo-Dn4">
-                                <rect key="frame" x="0.0" y="44" width="225" height="717"/>
+                                <rect key="frame" x="0.0" y="41" width="225" height="720"/>
                                 <clipView key="contentView" id="B2N-V0-5Nl">
-                                    <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="225" height="720"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="94" rowSizeStyle="automatic" viewBased="YES" id="V32-IE-4KG">
-                                            <rect key="frame" x="0.0" y="0.0" width="225" height="717"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="225" height="720"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -850,27 +850,27 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </searchFieldCell>
                             </searchField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-Zf-82n">
-                                <rect key="frame" x="2" y="5" width="39" height="32"/>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-Zf-82n">
+                                <rect key="frame" x="8" y="11" width="33" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="jU3-nW-9Bc"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="createNoteButton:" target="AJB-Rv-pdl" id="HqY-nZ-yFc"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4w-jt-nIu">
-                                <rect key="frame" x="183" y="5" width="39" height="32"/>
+                                <rect key="frame" x="183" y="11" width="33" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="Vcp-2e-aDa"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P1p-cM-05E">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P1p-cM-05E">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="removeNoteButton:" target="AJB-Rv-pdl" id="0jp-0y-Oc4"/>
@@ -969,11 +969,26 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCQ-LX-xJQ">
+                                <rect key="frame" x="0.0" y="390" width="18" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="8dc-Jj-AgY"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Yh2-rT-HGQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggleSidebar:" target="EMS-3s-xwz" id="4l7-0f-ck2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="PA0-9F-jMK" secondAttribute="bottom" constant="12" id="43t-9o-C3F"/>
                             <constraint firstItem="PA0-9F-jMK" firstAttribute="baseline" secondItem="Kbb-pL-yiC" secondAttribute="baseline" id="75M-wO-Dbi"/>
+                            <constraint firstItem="fCQ-LX-xJQ" firstAttribute="centerY" secondItem="Lek-WY-dLh" secondAttribute="centerY" id="KJ5-1l-Vcw"/>
                             <constraint firstItem="PA0-9F-jMK" firstAttribute="top" secondItem="8aO-Nj-ocM" secondAttribute="bottom" constant="8" symbolic="YES" id="Mdh-5D-Lk0"/>
+                            <constraint firstItem="8aO-Nj-ocM" firstAttribute="leading" secondItem="fCQ-LX-xJQ" secondAttribute="trailing" constant="2" id="Wua-YU-aEs"/>
                             <constraint firstItem="8aO-Nj-ocM" firstAttribute="leading" secondItem="PA0-9F-jMK" secondAttribute="leading" id="YSG-if-9dd"/>
                             <constraint firstItem="9sq-Xt-SBd" firstAttribute="leading" secondItem="Lek-WY-dLh" secondAttribute="leading" constant="20" symbolic="YES" id="bhS-qb-cpL"/>
                             <constraint firstItem="8aO-Nj-ocM" firstAttribute="top" secondItem="9sq-Xt-SBd" secondAttribute="bottom" constant="8" symbolic="YES" id="c0a-Xc-YmU"/>
@@ -982,6 +997,7 @@
                             <constraint firstItem="9sq-Xt-SBd" firstAttribute="leading" secondItem="8aO-Nj-ocM" secondAttribute="leading" id="fea-Tv-eOP"/>
                             <constraint firstItem="9sq-Xt-SBd" firstAttribute="trailing" secondItem="8aO-Nj-ocM" secondAttribute="trailing" id="gdy-w6-5RQ"/>
                             <constraint firstItem="9sq-Xt-SBd" firstAttribute="top" secondItem="Lek-WY-dLh" secondAttribute="top" constant="20" symbolic="YES" id="vxJ-yZ-ybO"/>
+                            <constraint firstItem="fCQ-LX-xJQ" firstAttribute="leading" secondItem="Lek-WY-dLh" secondAttribute="leading" id="yC8-ut-Pkb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1000,5 +1016,6 @@
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
     </resources>
 </document>

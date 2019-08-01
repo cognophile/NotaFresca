@@ -2,7 +2,7 @@
 import Foundation
 import Cocoa
 
-class NoteEditorViewController: NSViewController, NSTextViewDelegate, NSTextFieldDelegate {
+class NoteEditorViewController: BaseViewController, NSTextViewDelegate, NSTextFieldDelegate {
     @IBOutlet weak var createdLabel: NSTextField?
     @IBOutlet weak var bodyPane: NSScrollView!
     @IBOutlet weak var bodyTextView: NSTextView!

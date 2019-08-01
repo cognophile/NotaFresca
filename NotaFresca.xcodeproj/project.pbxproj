@@ -14,6 +14,7 @@
 		0D00F59822BC505900420EDD /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00F59722BC505900420EDD /* NoteRepository.swift */; };
 		0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */; };
 		0D40114D22C1700F00A1EC0A /* StringTruncateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */; };
+		0D61326122F3A01A007AB6AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61326022F3A01A007AB6AD /* BaseViewController.swift */; };
 		0D63739D22B2F17300CFB4E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */; };
 		0D63739F22B2F17300CFB4E2 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63739E22B2F17300CFB4E2 /* NoteViewController.swift */; };
 		0D6373A122B2F17400CFB4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6373A022B2F17400CFB4E2 /* Assets.xcassets */; };
@@ -29,6 +30,8 @@
 		0D746AE022D542D9007A86DF /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D746ADF22D542D9007A86DF /* BaseRepository.swift */; };
 		0D8EED7DBEC6A83F66DB142E /* Pods_NotaFrescaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196997861758C96B48885A79 /* Pods_NotaFrescaTests.framework */; };
 		0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF085D522B3025D00EBF9EC /* AppWindowController.swift */; };
+		0DF9E57922EA458200134D23 /* I18nHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF9E57822EA458200134D23 /* I18nHelper.swift */; };
+		0DF9E57F22EA55AA00134D23 /* i18nContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DF9E57E22EA558D00134D23 /* i18nContent.json */; };
 		4A5D298EA195C45E16090A62 /* Pods_NotaFrescaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEE814BC3E66560137D9D5A /* Pods_NotaFrescaUITests.framework */; };
 		D7F54A6EC7DE43B6D649A879 /* Pods_NotaFresca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C328979385E9A7F555CE7346 /* Pods_NotaFresca.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,7 @@
 		0D00F59722BC505900420EDD /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
 		0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 		0D40114C22C1700F00A1EC0A /* StringTruncateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncateExtension.swift; sourceTree = "<group>"; };
+		0D61326022F3A01A007AB6AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0D63739922B2F17300CFB4E2 /* NotaFresca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotaFresca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D63739C22B2F17300CFB4E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D63739E22B2F17300CFB4E2 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		0D746ADD22D29CFA007A86DF /* DialogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogHelper.swift; sourceTree = "<group>"; };
 		0D746ADF22D542D9007A86DF /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		0DF085D522B3025D00EBF9EC /* AppWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
+		0DF9E57822EA458200134D23 /* I18nHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18nHelper.swift; sourceTree = "<group>"; };
+		0DF9E57E22EA558D00134D23 /* i18nContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = i18nContent.json; sourceTree = "<group>"; };
 		196997861758C96B48885A79 /* Pods_NotaFrescaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotaFrescaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0A6B6724A84A1896CB4E60 /* Pods-NotaFresca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.debug.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.debug.xcconfig"; sourceTree = "<group>"; };
 		51E87223DF0975A125B8C152 /* Pods-NotaFresca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotaFresca.release.xcconfig"; path = "Target Support Files/Pods-NotaFresca/Pods-NotaFresca.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				0D07FF7022C42E6E000CA632 /* DateFormatHelper.swift */,
 				0D746ACE22CD7730007A86DF /* DatabaseHelper.swift */,
 				0D746ADD22D29CFA007A86DF /* DialogHelper.swift */,
+				0DF9E57822EA458200134D23 /* I18nHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 		0D63739B22B2F17300CFB4E2 /* NotaFresca */ = {
 			isa = PBXGroup;
 			children = (
+				0DF9E57D22EA555B00134D23 /* Resources */,
 				0D746AD822D28BB7007A86DF /* Delegates */,
 				0D07FF6F22C42E4E000CA632 /* Helpers */,
 				0D40114B22C16FE400A1EC0A /* Extensions */,
@@ -254,8 +262,17 @@
 			isa = PBXGroup;
 			children = (
 				0DF085D522B3025D00EBF9EC /* AppWindowController.swift */,
+				0D61326022F3A01A007AB6AD /* BaseViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0DF9E57D22EA555B00134D23 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0DF9E57E22EA558D00134D23 /* i18nContent.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		9F32362FC12609442CDFEFF2 /* Frameworks */ = {
@@ -289,10 +306,10 @@
 			buildConfigurationList = 0D6373BF22B2F17400CFB4E2 /* Build configuration list for PBXNativeTarget "NotaFresca" */;
 			buildPhases = (
 				980AD058F8466971BE6FD7A8 /* [CP] Check Pods Manifest.lock */,
+				0D63739522B2F17300CFB4E2 /* Sources */,
 				0D63739622B2F17300CFB4E2 /* Frameworks */,
 				0D63739722B2F17300CFB4E2 /* Resources */,
 				C666A947CDF6C8A1DC6A77C1 /* [CP] Embed Pods Frameworks */,
-				0D63739522B2F17300CFB4E2 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -389,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF9E57F22EA55AA00134D23 /* i18nContent.json in Resources */,
 				0D6373A122B2F17400CFB4E2 /* Assets.xcassets in Resources */,
 				0D6373A422B2F17400CFB4E2 /* Main.storyboard in Resources */,
 			);
@@ -505,6 +523,7 @@
 				0D00F59322BC376F00420EDD /* NoteEditorViewController.swift in Sources */,
 				0D07FF7122C42E6E000CA632 /* DateFormatHelper.swift in Sources */,
 				0D746AD722D11C2D007A86DF /* NSTableViewExtension.swift in Sources */,
+				0D61326122F3A01A007AB6AD /* BaseViewController.swift in Sources */,
 				0D746ACF22CD7730007A86DF /* DatabaseHelper.swift in Sources */,
 				0D746ADE22D29CFA007A86DF /* DialogHelper.swift in Sources */,
 				0D00F58F22BC2E4800420EDD /* NoteBrowserViewController.swift in Sources */,
@@ -514,6 +533,7 @@
 				0D746ADC22D2939D007A86DF /* NoteEditorSyncDelegate.swift in Sources */,
 				0D746AD122CEC362007A86DF /* BaseModel.swift in Sources */,
 				0DF085D622B3025D00EBF9EC /* AppWindowController.swift in Sources */,
+				0DF9E57922EA458200134D23 /* I18nHelper.swift in Sources */,
 				0D00F59822BC505900420EDD /* NoteRepository.swift in Sources */,
 				0D40114D22C1700F00A1EC0A /* StringTruncateExtension.swift in Sources */,
 				0D00F59122BC2EF700420EDD /* NoteBrowserCellView.swift in Sources */,
