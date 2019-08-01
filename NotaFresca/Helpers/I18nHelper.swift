@@ -6,13 +6,17 @@ class I18nHelper {
     private var messages: [String: AnyObject]?
 
     init() {
-        self.localeKey = NSLocale.current.languageCode!
+        self.localeKey = NSLocale.preferredLanguages[0]
         self.loadFile()
     }
 
-    public func locateMessage(category: String, key: String) -> String{
-        let message = self.messages![category] as? [String: AnyObject]
-        return (message![key] as? String)!
+    public func locateMessage(category: String, key: String) -> String {
+        if let message = self.messages![category] as? [String: AnyObject] {
+            return (message[key] as? String)!
+        }
+        
+        _ = DialogHelper.error(header: "Locale error", body: "Unfortunately, this language is not yet supported. Please request it by submitting an issue on the Github page. \nAlternatively, change your preferred language in your devices language settings.")
+        return ""
     }
     
     private func loadFile() {
