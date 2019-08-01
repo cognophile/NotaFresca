@@ -2,7 +2,7 @@
 import Foundation
 import Cocoa
 
-class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSSearchFieldDelegate, NSTableViewClickableDelegate, NoteEditorSyncDelegate {
+class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTableViewDelegate, NSSearchFieldDelegate, NSTableViewClickableDelegate, NoteEditorSyncDelegate {
     @IBOutlet weak var browser: NSTableView?
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
@@ -100,7 +100,10 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     
     public func createNote() {
         let newNote = NoteModel()
-        newNote.build(title: "Give it a great title...", body: "Now, let's get writing!")
+        newNote.build(
+            title: self.i18n!.locateMessage(category: "Templates", key: "Note.Title"),
+            body: self.i18n!.locateMessage(category: "Templates", key: "Note.Body")
+        )
         
         if let note = self.repository?.save(note: newNote) {
             self.refreshBrowserSelection(indexToHighlight: self.notes?.count ?? 0)
@@ -109,10 +112,10 @@ class NoteBrowserViewController: NSViewController, NSTableViewDataSource, NSTabl
     }
     
     public func deleteNote() {
-        // var i18n = I18nHelper(locale: "en-GB")
-        // let message = i18n.locateMessage(category: "Buttons", key: "Cancel")
-        
-        let isConfirmed = DialogHelper.confirm(header: "Woah there...", body: "You're about to permenantly delete this note. Are you sure you wish to proceed?")
+        let isConfirmed = DialogHelper.confirm(
+            header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+            body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Delete")
+        )
         
         if (isConfirmed) {
             if let selectedIndex = browser?.selectedRow {

@@ -5,8 +5,8 @@ class I18nHelper {
     private var localeKey: String
     private var messages: [String: AnyObject]?
 
-    init(locale: String) {
-        self.localeKey = locale
+    init() {
+        self.localeKey = NSLocale.current.languageCode!
         self.loadFile()
     }
 
@@ -25,7 +25,7 @@ class I18nHelper {
                     self.messages = dictionary[self.localeKey] as? [String: AnyObject]
                 }
             } catch {
-                _ = DialogHelper.error(header: "", body: "")
+                _ = DialogHelper.error(header: "Rut-roh!", body: "Unexpected error when initialising. If this continues, please submit an issue on GitHub - \(error)")
                 return
             }
         }
