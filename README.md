@@ -8,6 +8,7 @@ When you need to take a note where content is the focus, think NotaFresca for a 
 ### Contributing
 Please read the [contributing guide](CONTRIBUTING.md) for more info. 
 
+![](imgs/notafresca-demo.gif)
 
 ---
 <sub>Icon made by [SmashIcons](https://www.flaticon.com/authors/smashicons) at [Flaticon](https://www.flaticon.com) as licensed under [Creative Commons 3.0](http://creativecommons.org/licenses/by/3.0/).</sub>
