@@ -3,11 +3,10 @@ language: swift
 osx_image: xcode10.2	
 
 xcode_project: NotaFresca.xcodeproj 
-xcode_workspace: NotaFresca.xcworkspace
 xcode_scheme: NotaFrescaTests
 xcode_destination: platform=macOS
 
 before_install:
-  - gem install cocoapods -v '1.7.3'
+  - gem install cocoapods
   - pod repo update
   - pod install
