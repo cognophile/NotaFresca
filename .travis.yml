@@ -2,7 +2,7 @@ os: osx
 language: swift
 osx_image: xcode10.2	
 
-xcode_project: NotaFresca.xcodeproj 
+xcode_workspace: NotaFresca.xcworkspace 
 xcode_scheme: NotaFrescaTests
 xcode_destination: platform=macOS
 
