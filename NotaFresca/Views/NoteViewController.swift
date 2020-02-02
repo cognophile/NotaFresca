@@ -28,7 +28,15 @@ class NoteViewController: NSSplitViewController {
         self.browserController?.createNote()
     }
     
-    @IBAction func menuDeleteNote(_ sender: Any) {
-        self.browserController?.deleteNote()
+    @IBAction func menuTrashNote(_ sender: Any) {
+        self.browserController?.trashNote()
+    }
+    
+    @IBAction func menuViewTrash(_ sender: Any) {
+        self.browserController?.displayTrash()
+    }
+    
+    @IBAction func menuRestoreNote(_ sender: Any) {
+        self.browserController?.restoreNote()
     }
 }

@@ -24,6 +24,10 @@ class BaseRepository {
         return false
     }
     
+    func restore(target: Int) -> Int? {
+        return nil
+    }
+    
     func find(term: String, items: Array<BaseModel>) -> Array<BaseModel>? {
         return nil
     }

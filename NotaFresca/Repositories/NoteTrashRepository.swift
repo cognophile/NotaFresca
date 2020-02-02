@@ -12,15 +12,14 @@ class NoteTrashRepository: BaseRepository {
     }
     
     public override func readAll() -> Array<BaseModel>? {
-        guard let statement = noteModel.table?
+        guard let query = noteModel.table?
                 .select(self.noteModel.table![*])
                 .join(.inner, self.trashModel.table!, on: self.trashModel.noteId == self.noteModel.table![self.noteModel.id])
-//                .filter(self.trashModel.table![self.trashModel.optId] != nil)
             else {
                 return Array<NoteModel>()
         }
 
-        let records = Array(self.database.selectAll(model: self.noteModel, override: statement)!)
+        let records = Array(self.database.selectAll(model: self.noteModel, override: query)!)
         let notes = self.transformMultipleRows(rows: records)
         
         return notes
@@ -36,6 +35,22 @@ class NoteTrashRepository: BaseRepository {
         
         if let result = self.database.insert(model: self.trashModel, query: query) {
             return result
+        }
+        
+        return nil
+    }
+    
+    public override func restore(target: Int) -> Int? {
+        let query = self.trashModel.table?.filter(self.trashModel.noteId == target)
+        let record = self.database.selectOne(model: self.trashModel, index: target, override: query)!
+        
+        do {
+            if let result = self.database.delete(model: self.trashModel, index: try record.get(self.trashModel.id)) {
+                return result
+            }
+        }
+        catch  {
+            _ = DialogHelper.error(header: "Rut-roh!", body: "It looks like this note can't be restored! Sorry :( If this continues, please submit an issue on GitHub - \(error)")
         }
         
         return nil
@@ -65,14 +80,14 @@ class NoteTrashRepository: BaseRepository {
         var notes = [NoteModel]()
         
         for line in rows {
-            let noteObject = self.transformRow(row: line)
+            let noteObject = self.transformRowToNote(row: line)
             notes.append(noteObject)
         }
         
         return notes
     }
 
-    private func transformRow(row: Row) -> NoteModel {
+    private func transformRowToNote(row: Row) -> NoteModel {
         let note = NoteModel()
         
         note.record = row

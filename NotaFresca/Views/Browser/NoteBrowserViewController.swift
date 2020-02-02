@@ -58,18 +58,11 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     }
     
     @IBAction func removeNoteButton(_ sender: NSButton) {
-        self.deleteNote()
+        self.trashNote()
     }
     
     @IBAction func showTrashButton(_ sender: NSButton) {
-        if (!self.showTrash) {
-            self.showTrash = true
-            self.refreshBrowserSelection()
-        }
-        else {
-            self.showTrash = false
-            self.refreshBrowserSelection()
-        }
+        self.displayTrash()
     }
     
     func updateBrowser(_ sender: NoteEditorViewController) {
@@ -122,12 +115,36 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         }
     }
     
-    public func deleteNote() {
-        let isConfirmed = DialogHelper.confirm(
-            header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
-            body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Delete")
-        )
+    public func restoreNote() {
+        if let selectedIndex = browser?.selectedRow {
+            let selectedNote = self.notes?[selectedIndex]
+            
+            if let isDeleted = self.repository?.restore(target: (selectedNote?.getId())!) {
+                if self.selectedIndex ?? 0 > 0 {
+                    self.selectedIndex? -= 1
+                }
+                self.refreshBrowserSelection()
+                self.editor?.empty()
+            }
+        }
+    }
+    
+    public func trashNote() {
+        var isConfirmed: Bool = false
         
+        if self.showTrash {
+            isConfirmed = DialogHelper.confirm(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Delete")
+            )
+        }
+        else {
+            isConfirmed = DialogHelper.confirm(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Trash")
+            )
+        }
+
         if (isConfirmed) {
             if let selectedIndex = browser?.selectedRow {
                 let selectedNote = self.notes?[selectedIndex]
@@ -143,6 +160,17 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         }
     }
     
+    public func displayTrash() -> Void {
+        if (!self.showTrash) {
+            self.showTrash = true
+            self.refreshBrowserSelection()
+        }
+        else {
+            self.showTrash = false
+            self.refreshBrowserSelection()
+        }
+    }
+    
     func controlTextDidChange(_ obj: Notification) {
         if obj.object as? NSSearchField == self.search {
             self.searchNotes(self.search?.stringValue ?? "")
@@ -154,7 +182,6 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         
         if searchTerm.count > 0 {
             self.isSearching = true
-            
             results = (self.repository?.find(term: searchTerm, items: self.notes!)) as! [NoteModel]
             
             if results.count <= 0 {

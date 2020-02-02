@@ -89,9 +89,19 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="View Trash" keyEquivalent="t" id="Pgz-zj-gai" userLabel="View Trash">
+                                            <connections>
+                                                <action selector="menuViewTrash:" target="Ady-hI-5gd" id="xMM-GM-fyZ"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Delete Note" keyEquivalent="d" identifier="deleteNote" id="khU-nw-9wb">
                                             <connections>
-                                                <action selector="menuDeleteNote:" target="Ady-hI-5gd" id="BXN-AW-Oqs"/>
+                                                <action selector="menuTrashNote:" target="Ady-hI-5gd" id="BXN-AW-Oqs"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Restore Note" keyEquivalent="R" id="bW4-3j-B49" userLabel="Restore Note">
+                                            <connections>
+                                                <action selector="menuRestoreNote:" target="Ady-hI-5gd" id="YxG-Q6-aHU"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
@@ -735,7 +745,7 @@
         <scene sceneID="pQP-Rs-XzG">
             <objects>
                 <viewController id="AJB-Rv-pdl" customClass="NoteBrowserViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="CWj-q7-wez">
+                    <view key="view" id="CWj-q7-wez">
                         <rect key="frame" x="0.0" y="0.0" width="225" height="801"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -754,7 +764,7 @@
                                             <tableColumns>
                                                 <tableColumn width="222" minWidth="40" maxWidth="1000" id="CU6-bf-gHC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
