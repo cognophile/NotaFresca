@@ -42,9 +42,10 @@ class NoteTrashRepository: BaseRepository {
     }
     
     public override func delete(target: Int) -> Bool {
-        let isDeleted = self.database.delete(model: self.trashModel, index: target)
+        let trashDeleted = self.database.delete(model: self.trashModel, index: target)
+        let noteDeleted = self.database.delete(model: self.noteModel, index: target)
         
-        if ((isDeleted) != nil) {
+        if ((trashDeleted) != nil && (noteDeleted) != nil) {
             return true
         }
         
