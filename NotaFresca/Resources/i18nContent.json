@@ -13,6 +13,7 @@
             "Warning": "Wait a second..."
         },
         "Body": {
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
             "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
         },
         "Errors": {
@@ -33,6 +34,7 @@
             "Warning": "Wait a second..."
         },
         "Body": {
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
             "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
         },
         "Errors": {
@@ -53,6 +55,7 @@
             "Warning": "Wait a second..."
         },
         "Body": {
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
             "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
         },
         "Errors": {
@@ -73,6 +76,7 @@
             "Warning": "Aspetta un secondo..."
         },
         "Body": {
+            "Confirm.Trash": "Stai per cestinare questa nota. Sei sicuro di voler procedere?",
             "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
         },
         "Errors": {
@@ -93,6 +97,7 @@
             "Warning": "Aspetta un secondo..."
         },
         "Body": {
+            "Confirm.Trash": "Stai per cestinare questa nota. Sei sicuro di voler procedere?",
             "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
         },
         "Errors": {
