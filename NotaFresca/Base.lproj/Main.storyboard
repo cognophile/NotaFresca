@@ -735,12 +735,12 @@
         <scene sceneID="pQP-Rs-XzG">
             <objects>
                 <viewController id="AJB-Rv-pdl" customClass="NoteBrowserViewController" customModule="NotaFresca" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="CWj-q7-wez">
-                        <rect key="frame" x="0.0" y="0.0" width="225" height="800"/>
+                    <view key="view" misplaced="YES" id="CWj-q7-wez">
+                        <rect key="frame" x="0.0" y="0.0" width="225" height="801"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="96" horizontalPageScroll="10" verticalLineScroll="96" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC6-Lo-Dn4">
-                                <rect key="frame" x="0.0" y="41" width="225" height="720"/>
+                                <rect key="frame" x="0.0" y="42" width="225" height="720"/>
                                 <clipView key="contentView" id="B2N-V0-5Nl">
                                     <rect key="frame" x="0.0" y="0.0" width="225" height="720"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -754,7 +754,7 @@
                                             <tableColumns>
                                                 <tableColumn width="222" minWidth="40" maxWidth="1000" id="CU6-bf-gHC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -844,7 +844,7 @@
                                 </scroller>
                             </scrollView>
                             <searchField wantsLayer="YES" verticalHuggingPriority="750" misplaced="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-SX-Xkl">
-                                <rect key="frame" x="8" y="769" width="208" height="22"/>
+                                <rect key="frame" x="8" y="770" width="208" height="22"/>
                                 <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="ymu-nk-yeG">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -852,29 +852,42 @@
                                 </searchFieldCell>
                             </searchField>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-Zf-82n">
-                                <rect key="frame" x="8" y="11" width="33" height="19"/>
+                                <rect key="frame" x="8" y="12" width="33" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="jU3-nW-9Bc"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="3vz-cf-DcU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="createNoteButton:" target="AJB-Rv-pdl" id="HqY-nZ-yFc"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4w-jt-nIu">
-                                <rect key="frame" x="183" y="11" width="33" height="19"/>
+                                <rect key="frame" x="183" y="12" width="33" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="Vcp-2e-aDa"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P1p-cM-05E">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="P1p-cM-05E">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="removeNoteButton:" target="AJB-Rv-pdl" id="0jp-0y-Oc4"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s21-yO-cGk">
+                                <rect key="frame" x="94" y="10" width="37" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mI0-wd-bmc"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarDeleteTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="1J6-4m-x00">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showTrashButton:" target="AJB-Rv-pdl" id="hE9-aE-GAD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -885,10 +898,15 @@
                             <constraint firstItem="Bm8-SX-Xkl" firstAttribute="centerX" secondItem="gC6-Lo-Dn4" secondAttribute="centerX" id="62W-Fe-uZZ"/>
                             <constraint firstAttribute="bottom" secondItem="qM6-Zf-82n" secondAttribute="bottom" constant="12" id="6m5-hl-7iY"/>
                             <constraint firstItem="Bm8-SX-Xkl" firstAttribute="trailing" secondItem="d4w-jt-nIu" secondAttribute="trailing" id="8No-8g-Qah"/>
+                            <constraint firstItem="s21-yO-cGk" firstAttribute="centerX" secondItem="gC6-Lo-Dn4" secondAttribute="centerX" id="L04-Ix-udq"/>
+                            <constraint firstItem="s21-yO-cGk" firstAttribute="centerY" secondItem="qM6-Zf-82n" secondAttribute="centerY" id="Srb-uI-OLZ"/>
                             <constraint firstItem="gC6-Lo-Dn4" firstAttribute="leading" secondItem="CWj-q7-wez" secondAttribute="leading" id="VaQ-wF-Fjy"/>
                             <constraint firstItem="Bm8-SX-Xkl" firstAttribute="top" secondItem="CWj-q7-wez" secondAttribute="top" constant="9" id="WpL-tO-5V7"/>
+                            <constraint firstItem="s21-yO-cGk" firstAttribute="top" secondItem="gC6-Lo-Dn4" secondAttribute="bottom" constant="10" id="aop-jZ-Udp"/>
+                            <constraint firstItem="s21-yO-cGk" firstAttribute="centerY" secondItem="d4w-jt-nIu" secondAttribute="centerY" id="fS5-MT-dJP"/>
                             <constraint firstAttribute="trailing" secondItem="gC6-Lo-Dn4" secondAttribute="trailing" id="ir7-Ch-ije"/>
                             <constraint firstItem="Bm8-SX-Xkl" firstAttribute="leading" secondItem="CWj-q7-wez" secondAttribute="leading" constant="8" id="lOx-y0-dAN"/>
+                            <constraint firstItem="d4w-jt-nIu" firstAttribute="leading" secondItem="s21-yO-cGk" secondAttribute="trailing" constant="52" id="m9g-Od-Hfa"/>
                             <constraint firstItem="Bm8-SX-Xkl" firstAttribute="leading" secondItem="qM6-Zf-82n" secondAttribute="leading" id="szi-dV-BcM"/>
                         </constraints>
                     </view>
@@ -897,6 +915,7 @@
                         <outlet property="create" destination="CWj-q7-wez" id="Qmc-Ut-gjt"/>
                         <outlet property="remove" destination="d4w-jt-nIu" id="Fyr-3X-qi2"/>
                         <outlet property="search" destination="Bm8-SX-Xkl" id="ZY8-z6-Iju"/>
+                        <outlet property="trash" destination="s21-yO-cGk" id="Kga-Fm-2hk"/>
                     </connections>
                 </viewController>
                 <customObject id="PV2-i2-GUd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -977,7 +996,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Yh2-rT-HGQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="toggleSidebar:" target="EMS-3s-xwz" id="4l7-0f-ck2"/>
@@ -1018,5 +1037,6 @@
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
+        <image name="NSTouchBarDeleteTemplate" width="15" height="30"/>
     </resources>
 </document>

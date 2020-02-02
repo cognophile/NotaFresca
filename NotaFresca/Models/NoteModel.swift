@@ -8,15 +8,14 @@ class NoteModel: BaseModel {
     let created = Expression<String?>("created")
     let updated = Expression<String?>("updated")
     
-    var data: NoteDataStruct = NoteDataStruct()
-    var record: Row?
+    // var data: NoteDataStruct = NoteDataStruct()
 
     override init() {
         super.init()
         self.table = Table("notes")
     }
     
-    public func getId() -> Int {
+    public override func getId() -> Int {
         return try! (record?.get(self.id))!
     }
     

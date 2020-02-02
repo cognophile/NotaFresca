@@ -7,19 +7,22 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
     @IBOutlet weak var remove: NSButton!
+    @IBOutlet weak var trash: NSButton!
     
     var notes: Array<NoteModel>?
     var selectedIndex: Int?
     var isSearching: Bool = false
+    var showTrash: Bool = false
     var activeNote: NoteModel?
-    var repository: NoteRepository?
+    var repository: BaseRepository?
     var editor: NoteEditorViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.repository = NoteRepository()
-        
+            
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
+        
+        self.repository = NoteRepository()
         
         self.browser?.delegate = self
         self.browser?.dataSource = self
@@ -31,10 +34,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     
     @objc func refresh(_ notification: NSNotification? = nil) {
         let defaultIndex = 0
-        
-        if !self.isSearching {
-            self.notes = self.repository?.readAll()
-        }
+        self.setBrowserContent()
             
         if let selected = self.selectedIndex {
             self.browser?.reloadData()
@@ -50,7 +50,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
             self.browser?.reloadData()
             self.browser?.selectRowIndexes(NSIndexSet(index: defaultIndex) as IndexSet, byExtendingSelection: false)
             self.browser?.scrollRowToVisible(defaultIndex)
-        }        
+        }
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
@@ -59,6 +59,17 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     
     @IBAction func removeNoteButton(_ sender: NSButton) {
         self.deleteNote()
+    }
+    
+    @IBAction func showTrashButton(_ sender: NSButton) {
+        if (!self.showTrash) {
+            self.showTrash = true
+            self.refreshBrowserSelection()
+        }
+        else {
+            self.showTrash = false
+            self.refreshBrowserSelection()
+        }
     }
     
     func updateBrowser(_ sender: NoteEditorViewController) {
@@ -105,9 +116,9 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
             body: self.i18n!.locateMessage(category: "Templates", key: "Note.Body")
         )
         
-        if let note = self.repository?.save(note: newNote) {
+        if let note = self.repository?.save(item: newNote) {
             self.refreshBrowserSelection(indexToHighlight: self.notes?.count ?? 0)
-            self.editor?.render(index: note.getId(), note: note)
+            self.editor?.render(index: note.getId()!, note: note as! NoteModel)
         }
     }
     
@@ -143,7 +154,8 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         
         if searchTerm.count > 0 {
             self.isSearching = true
-            results = (self.repository?.find(term: searchTerm, notes: self.notes!))!
+            
+            results = (self.repository?.find(term: searchTerm, items: self.notes!)) as! [NoteModel]
             
             if results.count <= 0 {
                 self.editor?.empty()
@@ -165,5 +177,20 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         }
         
         return self.refresh()
+    }
+    
+    private func setBrowserContent() {
+        if self.isSearching {
+            return
+        }
+        
+        if self.showTrash {
+            self.repository = NoteTrashRepository()
+            self.notes = self.repository?.readAll() as? Array<NoteModel>
+        }
+        else {
+            self.repository = NoteRepository()
+            self.notes = self.repository?.readAll() as? Array<NoteModel>
+        }
     }
 }

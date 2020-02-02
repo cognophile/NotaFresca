@@ -8,23 +8,23 @@ class BaseRepository {
         return nil
     }
     
-    func readOne() -> BaseModel? {
+    func readOne(target: Int) -> BaseModel? {
         return nil
     }
     
-    func save() -> BaseModel? {
+    func save(item: BaseModel) -> BaseModel? {
         return nil
     }
     
-    func update()  -> BaseModel? {
+    func update(target: BaseModel)  -> BaseModel? {
         return nil
     }
     
-    func delete() -> Bool? {
+    func delete(target: Int) -> Bool? {
         return false
     }
     
-    func find() -> Array<BaseModel>? {
+    func find(term: String, items: Array<BaseModel>) -> Array<BaseModel>? {
         return nil
     }
 }

@@ -1,10 +1,10 @@
 
 import Foundation
 
-public struct NoteDataStruct {
-    public var id: Int?
-    public var title: String?
-    public var body: String?
-    public var created: String?
-    public var updated: String? 
+class NoteDataStruct {
+    var id: Int?
+    var title: String?
+    var body: String?
+    var created: String?
+    var updated: String?
 }

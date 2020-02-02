@@ -13,7 +13,13 @@ class DatabaseHelper {
         try! self.connection?.run(model.createTable()!)
     }
     
-    public func selectAll(model: BaseModel) -> AnySequence<Row>? {
+    public func selectAll(model: BaseModel, override: QueryType? = nil) -> AnySequence<Row>? {
+        if (override != nil) {
+            if let records = try! self.connection?.prepare(override!) {
+                return records
+            }
+        }
+        
         if let records = try! self.connection?.prepare(model.table!) {
             return records
         }
@@ -21,7 +27,13 @@ class DatabaseHelper {
         return nil
     }
     
-    public func selectOne(model: BaseModel, index: Int) -> Row? {
+    public func selectOne(model: BaseModel, index: Int, override: QueryType? = nil) -> Row? {
+        if (override != nil) {
+            if let record = try! self.connection?.pluck(override!) {
+                return record
+            }
+        }
+        
         guard let statement = model.table?.filter(model.id == index) else { return nil }
         
         if let record = try! self.connection?.pluck(statement) {
