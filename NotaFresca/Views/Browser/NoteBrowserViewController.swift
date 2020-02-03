@@ -119,7 +119,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         if let selectedIndex = browser?.selectedRow {
             let selectedNote = self.notes?[selectedIndex]
             
-            if let isDeleted = self.repository?.restore(target: (selectedNote?.getId())!) {
+            if let isRestored = self.repository?.restore(target: (selectedNote?.getId())!) {
                 if self.selectedIndex ?? 0 > 0 {
                     self.selectedIndex? -= 1
                 }
@@ -149,7 +149,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
             if let selectedIndex = browser?.selectedRow {
                 let selectedNote = self.notes?[selectedIndex]
                 
-                if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
+                if let isTrashed = self.repository?.delete(target: (selectedNote?.getId())!) {
                     if self.selectedIndex ?? 0 > 0 {
                         self.selectedIndex? -= 1
                     }
@@ -174,6 +174,26 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     func controlTextDidChange(_ obj: Notification) {
         if obj.object as? NSSearchField == self.search {
             self.searchNotes(self.search?.stringValue ?? "")
+        }
+    }
+    
+    public func emptyTrash() -> Void {
+        if !self.showTrash {
+            _ = DialogHelper.notice(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Information", key: "Trash.Empty")
+            )
+            
+            return
+        }
+        
+        let isConfirmed = DialogHelper.confirm(
+            header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+            body: self.i18n!.locateMessage(category: "Body", key: "Confirm.DeleteAll")
+        )
+                
+        if isConfirmed, let _ = self.repository?.deleteAll() {
+            self.refreshBrowserSelection()
         }
     }
     

@@ -15,7 +15,7 @@ class I18nHelper {
             return (message[key] as? String)!
         }
         
-        _ = DialogHelper.error(header: "Locale error", body: "Unfortunately, this language is not yet supported. Please request it by submitting an issue on the Github page. \nAlternatively, change your preferred language in your devices language settings.")
+        _ = DialogHelper.error(header: "Locale error", body: "Unfortunately, this language is not yet supported. Please request it by submitting an issue on the Github page. \nAlternatively, change your preferred language in your devices language settings.", error: nil)
         return ""
     }
     
@@ -29,8 +29,7 @@ class I18nHelper {
                     self.messages = dictionary[self.localeKey] as? [String: AnyObject]
                 }
             } catch {
-                _ = DialogHelper.error(header: "Rut-roh!", body: "Unexpected error when initialising. If this continues, please submit an issue on GitHub - \(error)")
-                return
+                _ = DialogHelper.error(header: "Rut-roh!", body: "Unexpected error when initialising. If this continues, please submit an issue on GitHub", error: error)
             }
         }
     }

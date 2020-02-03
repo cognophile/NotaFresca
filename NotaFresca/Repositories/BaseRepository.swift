@@ -24,6 +24,10 @@ class BaseRepository {
         return false
     }
     
+    func deleteAll() -> Bool? {
+        return false
+    }
+    
     func restore(target: Int) -> Int? {
         return nil
     }

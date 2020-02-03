@@ -50,7 +50,7 @@ class NoteTrashRepository: BaseRepository {
             }
         }
         catch  {
-            _ = DialogHelper.error(header: "Rut-roh!", body: "It looks like this note can't be restored! Sorry :( If this continues, please submit an issue on GitHub - \(error)")
+            _ = DialogHelper.error(header: "Error", body: "Restore.Unknown", error: error)
         }
         
         return nil
@@ -61,6 +61,24 @@ class NoteTrashRepository: BaseRepository {
         let noteDeleted = self.database.delete(model: self.noteModel, index: target)
         
         if ((trashDeleted) != nil && (noteDeleted) != nil) {
+            return true
+        }
+        
+        return false
+    }
+    
+    public func getCount() -> Int {
+        return self.readAll()?.count ?? 0
+    }
+    
+    public override func deleteAll() -> Bool? {
+        let trashed = self.readAll()!
+        
+        if let trashEmptied = self.database.deleteAll(model: self.trashModel) {
+            for note in trashed {
+                _ = self.database.delete(model: self.noteModel, index: note.getId()!)
+            }
+            
             return true
         }
         

@@ -77,6 +77,22 @@ class DatabaseHelper {
         return nil
     }
     
+    public func deleteAll(model: BaseModel, override: QueryType? = nil) -> Int? {
+        if (override != nil) {
+            if let records = try! self.connection?.run((override?.delete())!) {
+                return records
+            }
+        }
+        
+        guard let statement = model.table?.delete() else { return nil }
+        
+        if let record = try! self.connection?.run(statement) {
+            return record
+        }
+        
+        return nil
+    }
+    
     private func openConnection() {
         let databasePath = NSSearchPathForDirectoriesInDomains( .applicationSupportDirectory, .userDomainMask, true).first! + "/" + Bundle.main.bundleIdentifier!
         
