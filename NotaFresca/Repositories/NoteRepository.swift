@@ -4,68 +4,86 @@ import SQLite
 
 class NoteRepository: BaseRepository {
     private var data = [NoteModel]()
-    private var model = NoteModel()
+    private var noteModel = NoteModel()
+    private var trashModel = NoteTrashModel()
+    private var trashRepository = NoteTrashRepository()
     
     override init() {
         super.init()
-        self.database.createTable(model: self.model)
+        self.database.createTable(model: self.noteModel)
     }
     
-    public func readAll() -> Array<NoteModel> {
-        let records = Array(self.database.selectAll(model: self.model)!)
+    public override func readAll() -> Array<BaseModel> {
+        guard let statement = noteModel.table?
+                .select(self.noteModel.table![*])
+                .join(.leftOuter, self.trashModel.table!, on: self.trashModel.noteId == self.noteModel.table![self.noteModel.id])
+                .filter(self.trashModel.table![self.trashModel.optId] == nil)
+            else {
+                return Array<NoteModel>()
+        }
+
+        let records = Array(self.database.selectAll(model: self.noteModel, override: statement)!)
         let notes = self.transformMultipleRows(rows: records)
         
         return notes
     }
     
-    public func readOne(target: Int) -> NoteModel {
-        let record = self.database.selectOne(model: self.model, index: target)
+    public override func readOne(target: Int) -> BaseModel {
+        guard let statement = noteModel.table?
+                .select(self.noteModel.table![*]).join(.leftOuter, self.trashModel.table!, on: self.trashModel.noteId == self.noteModel.table![self.noteModel.id])
+                .filter(self.trashModel.table![self.trashModel.optId] == nil)
+                .filter(self.noteModel.table![self.noteModel.optId] == target)
+            else {
+                return NoteModel()
+        }
+        
+        let record = self.database.selectOne(model: self.noteModel, index: target, override: statement)
         let note = self.transformRow(row: record!)
         
         return note
     }
     
-    public func save(note: NoteModel) -> NoteModel {
-        let query = self.model.table!.insert(
-            self.model.title <- note.data.title,
-            self.model.body <- note.data.body,
-            self.model.created <- note.data.created,
-            self.model.updated <- note.data.updated
+    public override func save(item: BaseModel) -> BaseModel {
+        let query = self.noteModel.table!.insert(
+            self.noteModel.title <- item.data.title,
+            self.noteModel.body <- item.data.body,
+            self.noteModel.created <- item.data.created,
+            self.noteModel.updated <- item.data.updated
         )
         
-        note.record = self.database.insert(model: self.model, query: query)
-        return note
+        item.record = self.database.insert(model: self.noteModel, query: query)
+        return item
     }
     
-    public func update(note: NoteModel) -> NoteModel {
+    public override func update(target: BaseModel) -> BaseModel {
         let query = [
-            self.model.title <- note.data.title,
-            self.model.body <- note.data.body,
-            self.model.created <- note.data.created,
-            self.model.updated <- note.data.updated
+            self.noteModel.title <- target.data.title,
+            self.noteModel.body <- target.data.body,
+            self.noteModel.created <- target.data.created,
+            self.noteModel.updated <- target.data.updated
         ]
         
-        note.record = self.database.update(model: self.model, index: note.getId(), query: query)
-        return note
+        target.record = self.database.update(model: self.noteModel, index: target.getId()!, query: query)
+        return target
     }
 
-    public func delete(target: Int) -> Bool {
-        if self.database.delete(model: self.model, index: target) != nil {
+    public override func delete(target: Int) -> Bool {
+        let isTrashed = self.trashRepository.trash(noteId: target)
+        
+        if ((isTrashed) != nil) {
             return true
         }
         
         return false
     }
     
-    public func find(term: String, notes: [NoteModel]) -> Array<NoteModel> {
-        let notes = Array(self.database.selectAll(model: self.model)!)
-        
-        let results = notes.filter { item in return
-            (item[self.model.title]?.lowercased().contains(term.lowercased()))! ||
-            (item[self.model.body]?.lowercased().contains(term.lowercased()))!
+    public override func find(term: String, items: [BaseModel]) -> Array<BaseModel> {
+        let loweredTerm = term.lowercased()
+        let results = items.filter { item in return
+            ((item.data.title?.lowercased().contains(loweredTerm))!) || ((item.data.body?.lowercased().contains(loweredTerm))!)
         }
         
-        return self.transformMultipleRows(rows: results)
+        return results
     }
     
     private func transformMultipleRows(rows: [Row]) -> [NoteModel] {

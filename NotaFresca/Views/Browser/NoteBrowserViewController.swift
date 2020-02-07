@@ -7,19 +7,22 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     @IBOutlet weak var search: NSSearchField?
     @IBOutlet var create: NSButton!
     @IBOutlet weak var remove: NSButton!
+    @IBOutlet weak var trash: NSButton!
     
     var notes: Array<NoteModel>?
     var selectedIndex: Int?
     var isSearching: Bool = false
+    var showTrash: Bool = false
     var activeNote: NoteModel?
-    var repository: NoteRepository?
+    var repository: BaseRepository?
     var editor: NoteEditorViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.repository = NoteRepository()
-        
+            
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
+        
+        self.repository = NoteRepository()
         
         self.browser?.delegate = self
         self.browser?.dataSource = self
@@ -31,10 +34,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     
     @objc func refresh(_ notification: NSNotification? = nil) {
         let defaultIndex = 0
-        
-        if !self.isSearching {
-            self.notes = self.repository?.readAll()
-        }
+        self.setBrowserContent()
             
         if let selected = self.selectedIndex {
             self.browser?.reloadData()
@@ -50,7 +50,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
             self.browser?.reloadData()
             self.browser?.selectRowIndexes(NSIndexSet(index: defaultIndex) as IndexSet, byExtendingSelection: false)
             self.browser?.scrollRowToVisible(defaultIndex)
-        }        
+        }
     }
     
     @IBAction func createNoteButton(_ sender: NSButton) {
@@ -58,7 +58,11 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     }
     
     @IBAction func removeNoteButton(_ sender: NSButton) {
-        self.deleteNote()
+        self.trashNote()
+    }
+    
+    @IBAction func showTrashButton(_ sender: NSButton) {
+        self.displayTrash()
     }
     
     func updateBrowser(_ sender: NoteEditorViewController) {
@@ -105,23 +109,47 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
             body: self.i18n!.locateMessage(category: "Templates", key: "Note.Body")
         )
         
-        if let note = self.repository?.save(note: newNote) {
+        if let note = self.repository?.save(item: newNote) {
             self.refreshBrowserSelection(indexToHighlight: self.notes?.count ?? 0)
-            self.editor?.render(index: note.getId(), note: note)
+            self.editor?.render(index: note.getId()!, note: note as! NoteModel)
         }
     }
     
-    public func deleteNote() {
-        let isConfirmed = DialogHelper.confirm(
-            header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
-            body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Delete")
-        )
+    public func restoreNote() {
+        if let selectedIndex = browser?.selectedRow {
+            let selectedNote = self.notes?[selectedIndex]
+            
+            if let isRestored = self.repository?.restore(target: (selectedNote?.getId())!) {
+                if self.selectedIndex ?? 0 > 0 {
+                    self.selectedIndex? -= 1
+                }
+                self.refreshBrowserSelection()
+                self.editor?.empty()
+            }
+        }
+    }
+    
+    public func trashNote() {
+        var isConfirmed: Bool = false
         
+        if self.showTrash {
+            isConfirmed = DialogHelper.confirm(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Delete")
+            )
+        }
+        else {
+            isConfirmed = DialogHelper.confirm(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Body", key: "Confirm.Trash")
+            )
+        }
+
         if (isConfirmed) {
             if let selectedIndex = browser?.selectedRow {
                 let selectedNote = self.notes?[selectedIndex]
                 
-                if let isDeleted = self.repository?.delete(target: (selectedNote?.getId())!) {
+                if let isTrashed = self.repository?.delete(target: (selectedNote?.getId())!) {
                     if self.selectedIndex ?? 0 > 0 {
                         self.selectedIndex? -= 1
                     }
@@ -132,9 +160,40 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         }
     }
     
+    public func displayTrash() -> Void {
+        if (!self.showTrash) {
+            self.showTrash = true
+            self.refreshBrowserSelection()
+        }
+        else {
+            self.showTrash = false
+            self.refreshBrowserSelection()
+        }
+    }
+    
     func controlTextDidChange(_ obj: Notification) {
         if obj.object as? NSSearchField == self.search {
             self.searchNotes(self.search?.stringValue ?? "")
+        }
+    }
+    
+    public func emptyTrash() -> Void {
+        if !self.showTrash {
+            _ = DialogHelper.notice(
+                header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+                body: self.i18n!.locateMessage(category: "Information", key: "Trash.Empty")
+            )
+            
+            return
+        }
+        
+        let isConfirmed = DialogHelper.confirm(
+            header: self.i18n!.locateMessage(category: "Headers", key: "Warning"),
+            body: self.i18n!.locateMessage(category: "Body", key: "Confirm.DeleteAll")
+        )
+                
+        if isConfirmed, let _ = self.repository?.deleteAll() {
+            self.refreshBrowserSelection()
         }
     }
     
@@ -143,7 +202,7 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         
         if searchTerm.count > 0 {
             self.isSearching = true
-            results = (self.repository?.find(term: searchTerm, notes: self.notes!))!
+            results = (self.repository?.find(term: searchTerm, items: self.notes!)) as! [NoteModel]
             
             if results.count <= 0 {
                 self.editor?.empty()
@@ -165,5 +224,20 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
         }
         
         return self.refresh()
+    }
+    
+    private func setBrowserContent() {
+        if self.isSearching {
+            return
+        }
+        
+        if self.showTrash {
+            self.repository = NoteTrashRepository()
+            self.notes = self.repository?.readAll() as? Array<NoteModel>
+        }
+        else {
+            self.repository = NoteRepository()
+            self.notes = self.repository?.readAll() as? Array<NoteModel>
+        }
     }
 }

@@ -10,13 +10,19 @@
             "Continue": "Continue"
         },
         "Headers": {
-            "Warning": "Wait a second..."
+            "Warning": "Wait a second...",
+            "Error": "Rut-roh!"
         },
         "Body": {
-            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?",
+            "Confirm.DeleteAll": "You're about to permenantly delete all trashed notes. Are you sure you wish to proceed?"
+        },
+        "Information": {
+            "Trash.Empty": "You can't empty the trash from here. Please view the trash folder, first."
         },
         "Errors": {
-            
+            "Restore.Unknown": "It looks like this note can't be restored! If this continues, please submit an issue on GitHub."
         }
     },
     "en-GB": {
@@ -30,13 +36,19 @@
             "Continue": "Continue"
         },
         "Headers": {
-            "Warning": "Wait a second..."
+            "Warning": "Wait a second...",
+            "Error": "Rut-roh!"
         },
         "Body": {
-            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?",
+            "Confirm.DeleteAll": "You're about to permenantly delete all trashed notes. Are you sure you wish to proceed?"
+        },
+        "Information": {
+            "Trash.Empty": "You can't empty the trash from here. Please view the trash folder, first."
         },
         "Errors": {
-            
+            "Restore.Unknown": "It looks like this note can't be restored! If this continues, please submit an issue on GitHub."
         }
     },
     "en-US": {
@@ -50,13 +62,19 @@
             "Continue": "Continue"
         },
         "Headers": {
-            "Warning": "Wait a second..."
+            "Warning": "Wait a second...",
+            "Error": "Rut-roh!"
         },
         "Body": {
-            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?"
+            "Confirm.Trash": "You're about to trash this note. Are you sure you wish to proceed?",
+            "Confirm.Delete": "You're about to permenantly delete this note. Are you sure you wish to proceed?",
+            "Confirm.DeleteAll": "You're about to permenantly delete all trashed notes. Are you sure you wish to proceed?"
+        },
+        "Information": {
+            "Trash.Empty": "You can't empty the trash from here. Please view the trash folder, first."
         },
         "Errors": {
-            
+            "Restore.Unknown": "It looks like this note can't be restored! If this continues, please submit an issue on GitHub."
         }
     },
     "it-GB": {
@@ -70,13 +88,19 @@
             "Continue": "Continua"
         },
         "Headers": {
-            "Warning": "Aspetta un secondo..."
+            "Warning": "Aspetta un secondo...",
+            "Error": "Rut-roh!"
         },
         "Body": {
-            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
+            "Confirm.Trash": "Stai per cestinare questa nota. Sei sicuro di voler procedere?",
+            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?",
+            "Confirm.DeleteAll": "Stai per eliminare definitivamente tutte le note cancellate. Sei sicuro di voler procedere?"
+        },
+        "Information": {
+            "Trash.Empty": "Non puoi svuotare la spazzatura da qui. Si prega di visualizzare prima la cartella cestino."
         },
         "Errors": {
-            
+            "Restore.Unknown": "Sembra che questa nota non possa essere ripristinata! Se il problema persiste, si prega di inviare un problema su GitHub."
         }
     },
     "it-IT": {
@@ -90,13 +114,19 @@
             "Continue": "Continua"
         },
         "Headers": {
-            "Warning": "Aspetta un secondo..."
+            "Warning": "Aspetta un secondo...",
+            "Error": "Rut-roh!"
         },
         "Body": {
-            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?"
+            "Confirm.Trash": "Stai per cestinare questa nota. Sei sicuro di voler procedere?",
+            "Confirm.Delete": "Stai per eliminare definitivamente questa nota. Sei sicuro di voler procedere?",
+            "Confirm.DeleteAll": "Stai per eliminare definitivamente tutte le note cancellate. Sei sicuro di voler procedere?"
+        },
+        "Information": {
+            "Trash.Empty": "Non puoi svuotare la spazzatura da qui. Si prega di visualizzare prima la cartella cestino."
         },
         "Errors": {
-            
+            "Restore.Unknown": "Sembra che questa nota non possa essere ripristinata! Se il problema persiste, si prega di inviare un problema su GitHub."
         }
     }
 }

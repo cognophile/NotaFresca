@@ -66,8 +66,8 @@ class NoteEditorViewController: BaseViewController, NSTextViewDelegate, NSTextFi
         if self.activeNote != nil {
             self.activeNote?.modify(title: self.timer?.userInfo as! String, body: (self.activeNote?.getBody())!, created: (self.activeNote?.getCreatedString())!, updated: updated)
             
-            if let edited = self.repository?.update(note: self.activeNote!) {
-                self.activeNote = self.repository?.readOne(target: self.browserIndex!)
+            if let edited = self.repository?.update(target: self.activeNote!) {
+                self.activeNote = self.repository?.readOne(target: self.browserIndex!) as? NoteModel
             }
             
             self.syncDelegate?.updateBrowser(self)
@@ -81,8 +81,8 @@ class NoteEditorViewController: BaseViewController, NSTextViewDelegate, NSTextFi
         if self.activeNote != nil {
             self.activeNote?.modify(title: (self.activeNote?.getTitle())!, body: self.timer?.userInfo as! String, created: (self.activeNote?.getCreatedString())!, updated: updated)
             
-            if let edited = self.repository?.update(note: self.activeNote!) {
-                self.activeNote = self.repository?.readOne(target: self.browserIndex!)
+            if let edited = self.repository?.update(target: self.activeNote!) {
+                self.activeNote = self.repository?.readOne(target: self.browserIndex!) as? NoteModel
             }
             
             self.syncDelegate?.updateBrowser(self)

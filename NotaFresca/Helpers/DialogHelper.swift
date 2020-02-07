@@ -3,6 +3,16 @@ import Foundation
 import Cocoa
 
 class DialogHelper {
+    public static func notice(header: String, body: String) -> Bool {
+        let dialog = self.createDialog()
+        
+        dialog.messageText = header
+        dialog.informativeText = body
+        dialog.alertStyle = NSAlert.Style.warning
+        
+        return dialog.runModal() == .alertFirstButtonReturn
+    }
+    
     public static func confirm(header: String, body: String) -> Bool {
         let dialog = self.createDialog()
         let i18n = self.initialiseI18n()
@@ -17,9 +27,14 @@ class DialogHelper {
         return dialog.runModal() == .alertFirstButtonReturn
     }
     
-    public static func error(header: String, body: String) -> Bool {
+    public static func error(header: String, body: String, error: Error?) -> Bool {
         let dialog = self.createDialog()
         let i18n = self.initialiseI18n()
+        var body = body
+        
+        if error != nil {
+            body = body + " - " + "\(String(describing: error))"
+        }
         
         dialog.messageText = header
         dialog.informativeText = body
