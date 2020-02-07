@@ -5,7 +5,7 @@
 ## NotaFresca
 When you need to take a note where content is the focus, think NotaFresca for a fresh content-focused perspective on note taking.  
 
-To download the application, head over to the [Releases](https://github.com/cognophile/NotaFresca/releases) page and download the `.zip` file from the latest version. Unpack this locally (double-click the `.zip`) and you'll find the NotaFresca application. Drag this into your Applications folder, and voila!
+To download the application, head over to the [Releases](https://github.com/cognophile/NotaFresca/releases) page and download the `.zip` file from the latest version. You can also download it from [the website](https://cognophile.github.io/NotaFres…) in various formats. To unpack the `.zip` locally, double-click it and you'll find the NotaFresca application. Drag this into your Applications folder, and voila!
 
 ![](imgs/notafresca-demo.gif)
 
