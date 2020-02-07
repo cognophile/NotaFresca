@@ -8,7 +8,7 @@ class BaseModel {
     var optId = Expression<Int?>("id")
     
     var record: Row?
-    var data = NoteDataStruct()
+    var data = BaseDataObject()
     
     func createTable() -> String? {
         return nil

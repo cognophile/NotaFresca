@@ -87,8 +87,14 @@ class NoteTrashRepository: BaseRepository {
     
     public override func find(term: String, items: [BaseModel]) -> Array<BaseModel> {
         let loweredTerm = term.lowercased()
-        let results = items.filter { item in return
-            ((item.data.title?.lowercased().contains(loweredTerm))!) || ((item.data.body?.lowercased().contains(loweredTerm))!)
+                    
+        let results = items.filter { item in
+            let data = self.downcast(data: item.data)
+            if (data.title!.lowercased().contains(loweredTerm)) || (data.body!.lowercased() as AnyObject).contains(loweredTerm) {
+                return true
+            }
+            
+            return false
         }
         
         return results
@@ -98,23 +104,40 @@ class NoteTrashRepository: BaseRepository {
         var notes = [NoteModel]()
         
         for line in rows {
-            let noteObject = self.transformRowToNote(row: line)
+            let noteObject = self.transformRow(row: line)
             notes.append(noteObject)
         }
         
         return notes
     }
-
-    private func transformRowToNote(row: Row) -> NoteModel {
+    
+    private func transformRow(row: Row) -> NoteModel {
         let note = NoteModel()
         
+        let data = NoteDataObject()
+        data.id = row[note.id]
+        data.title = row[note.title]
+        data.body = row[note.body]
+        data.created = row[note.created]
+        data.updated = row[note.updated]
+        
+        note.data = data
         note.record = row
-        note.data.id = row[note.id]
-        note.data.title = row[note.title]
-        note.data.body = row[note.body]
-        note.data.created = row[note.created]
-        note.data.updated = row[note.updated]
         
         return note
+    }
+    
+    private func downcast(data: BaseDataObject) -> NoteDataObject {
+        let casted: NoteDataObject = NoteDataObject()
+        
+        if let temp = data as? NoteDataObject {
+            casted.id = temp.id
+            casted.title = temp.title
+            casted.body = temp.body
+            casted.created = temp.created
+            casted.updated = temp.updated
+        }
+        
+        return casted
     }
 }

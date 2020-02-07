@@ -44,11 +44,13 @@ class NoteRepository: BaseRepository {
     }
     
     public override func save(item: BaseModel) -> BaseModel {
+        let casted = self.downcast(data: item.data)
+        
         let query = self.noteModel.table!.insert(
-            self.noteModel.title <- item.data.title,
-            self.noteModel.body <- item.data.body,
-            self.noteModel.created <- item.data.created,
-            self.noteModel.updated <- item.data.updated
+            self.noteModel.title <- casted.title,
+            self.noteModel.body <- casted.body,
+            self.noteModel.created <- casted.created,
+            self.noteModel.updated <- casted.updated
         )
         
         item.record = self.database.insert(model: self.noteModel, query: query)
@@ -56,11 +58,13 @@ class NoteRepository: BaseRepository {
     }
     
     public override func update(target: BaseModel) -> BaseModel {
+        let casted = self.downcast(data: target.data)
+        
         let query = [
-            self.noteModel.title <- target.data.title,
-            self.noteModel.body <- target.data.body,
-            self.noteModel.created <- target.data.created,
-            self.noteModel.updated <- target.data.updated
+            self.noteModel.title <- casted.title,
+            self.noteModel.body <- casted.body,
+            self.noteModel.created <- casted.created,
+            self.noteModel.updated <- casted.updated
         ]
         
         target.record = self.database.update(model: self.noteModel, index: target.getId()!, query: query)
@@ -79,8 +83,14 @@ class NoteRepository: BaseRepository {
     
     public override func find(term: String, items: [BaseModel]) -> Array<BaseModel> {
         let loweredTerm = term.lowercased()
-        let results = items.filter { item in return
-            ((item.data.title?.lowercased().contains(loweredTerm))!) || ((item.data.body?.lowercased().contains(loweredTerm))!)
+                    
+        let results = items.filter { item in
+            let data = self.downcast(data: item.data)
+            if (data.title!.lowercased().contains(loweredTerm)) || (data.body!.lowercased() as AnyObject).contains(loweredTerm) {
+                return true
+            }
+            
+            return false
         }
         
         return results
@@ -100,13 +110,30 @@ class NoteRepository: BaseRepository {
     private func transformRow(row: Row) -> NoteModel {
         let note = NoteModel()
         
+        let data = NoteDataObject()
+        data.id = row[note.id]
+        data.title = row[note.title]
+        data.body = row[note.body]
+        data.created = row[note.created]
+        data.updated = row[note.updated]
+        
+        note.data = data
         note.record = row
-        note.data.id = row[note.id]
-        note.data.title = row[note.title]
-        note.data.body = row[note.body]
-        note.data.created = row[note.created]
-        note.data.updated = row[note.updated]
         
         return note
+    }
+    
+    private func downcast(data: BaseDataObject) -> NoteDataObject {
+        let casted: NoteDataObject = NoteDataObject()
+        
+        if let temp = data as? NoteDataObject {
+            casted.id = temp.id
+            casted.title = temp.title
+            casted.body = temp.body
+            casted.created = temp.created
+            casted.updated = temp.updated
+        }
+        
+        return casted
     }
 }

@@ -35,14 +35,19 @@ class NoteBrowserViewController: BaseViewController, NSTableViewDataSource, NSTa
     @objc func refresh(_ notification: NSNotification? = nil) {
         let defaultIndex = 0
         self.setBrowserContent()
-            
+                    
         if let selected = self.selectedIndex {
             self.browser?.reloadData()
             self.browser?.selectRowIndexes(NSIndexSet(index: selected) as IndexSet, byExtendingSelection: false)
             self.browser?.scrollRowToVisible(selected)
             
-            if (self.notes?.count ?? 0 > 0) {
+            if (self.notes?.count ?? 0 > 0 && self.selectedIndex ?? 0 <= self.notes?.count ?? 0) {
                 self.activeNote = self.notes?[selected]
+                self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
+            }
+            else {
+                self.selectedIndex = 0
+                self.activeNote = self.notes?[self.selectedIndex!]
                 self.editor?.render(index: (self.activeNote?.getId())!, note: (self.activeNote)!)
             }
         }

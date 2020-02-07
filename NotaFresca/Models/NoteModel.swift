@@ -8,11 +8,10 @@ class NoteModel: BaseModel {
     let created = Expression<String?>("created")
     let updated = Expression<String?>("updated")
     
-    // var data: NoteDataStruct = NoteDataStruct()
-
     override init() {
         super.init()
         self.table = Table("notes")
+        self.data = NoteDataObject()
     }
     
     public override func getId() -> Int {
@@ -51,17 +50,25 @@ class NoteModel: BaseModel {
     public func build(title: String, body: String) {
         let created = DateFormatHelper.toDateTimeString(date: Date())
         let updated = created
+
+        let casted: NoteDataObject = NoteDataObject()
         
-        self.data.title = title
-        self.data.body = body
-        self.data.created = created
-        self.data.updated = updated
+        casted.title = title
+        casted.body = body
+        casted.created = created
+        casted.updated = updated
+        
+        self.data = casted
     }
     
     public func modify(title: String, body: String, created: String, updated: String) {
-        self.data.title = title
-        self.data.body = body
-        self.data.created = created
-        self.data.updated = updated
+        let casted: NoteDataObject = NoteDataObject()
+        
+        casted.title = title
+        casted.body = body
+        casted.created = created
+        casted.updated = updated
+        
+        self.data = casted
     }
 }

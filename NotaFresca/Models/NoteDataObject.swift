@@ -1,8 +1,7 @@
 
 import Foundation
 
-class NoteDataStruct {
-    var id: Int?
+class NoteDataObject : BaseDataObject {
     var title: String?
     var body: String?
     var created: String?
